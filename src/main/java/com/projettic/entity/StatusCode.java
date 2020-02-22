@@ -29,7 +29,7 @@ public enum StatusCode {
     /**
      * 参数错误
      */
-    PARAMS_ERROR(403, "参数错误 "),
+    PARAMS_ERROR(403, "Wrong parameter! "),
 
     /**
      * 不支持或已经废弃

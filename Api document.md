@@ -5,6 +5,7 @@
 #####[3\. User login status test](#3)
 #####[4\. User register](#4)
 #####[5\. SQL executor](#5)
+#####[6\. Exercise request](#6)
 
 ---
 
@@ -207,4 +208,51 @@
 }
 ```
 ---
+
+<h4 id="6">6. Exercise request</h4>
+
+###### Api function
+> Request for exercises
+
+###### URL
+> ../exercise/getExoById
+
+###### Support format
+> JSON
+
+###### HTTP request methode
+> POST
+
+###### Request parameter
+|Parameter|Required|Type|Explain|
+|:-----  |:-------|:-----|-----                               |
+|idExercise   |yes   |string|id of exercise                       |
+
+###### Example request
+
+``` javascript
+{
+    "idExercise":"1"
+}
+```
+
+###### Example response of succesful request
+
+``` javascript
+{
+    "Data":{
+        "exerciseText":"Veuillez afficher toutes les information dans la table emp","idExercise":1},
+    "ErrorCode":200
+}
+```
+
+###### Example response of failing request
+``` javascript
+{
+    "RootCause":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Enter your sql query' at line 1",
+    "ErrorCode":1064
+}
+```
+---
+
 

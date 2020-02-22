@@ -24,10 +24,6 @@ public class ExerciseController {
     @ResponseBody
     public String reqExercise(@RequestBody String param){
         Exercise exercise = JSON.parseObject(param, Exercise.class);
-        exercise = exerciseService.findById(exercise);
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("ErrorCode", StatusCode.SUCCESS.getCode());
-        jsonObject.put("Data", exercise);
-        return jsonObject.toJSONString();
+        return exerciseService.findById(exercise);
     }
 }
