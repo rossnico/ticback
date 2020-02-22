@@ -249,8 +249,8 @@
 ###### Example response of failing request
 ``` javascript
 {
-    "RootCause":"You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Enter your sql query' at line 1",
-    "ErrorCode":1064
+    "ErrorCode":403,
+    "ErrorMessage":"Wrong parameter!"
 }
 ```
 ---
