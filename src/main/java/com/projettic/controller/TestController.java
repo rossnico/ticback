@@ -8,12 +8,13 @@ public class TestController {
 
     @RequestMapping(path = "/hellotest")
     public String helloTest() {
-        System.out.println("Hello Spring MVC");
+        System.out.println("Hello Spring MVVC");
         return "success";
     }
 
     @RequestMapping(path = "/sqltest")
     public String sqltest() {
+    	System.out.println("Hello Spring MVC");
         return "sql_query";
     }
 
