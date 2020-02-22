@@ -20,4 +20,8 @@ public class TestController {
     @RequestMapping(path="/testGit")
     public String testGit(){ return "success";}
 
+    @RequestMapping(path="/testGitPull")
+    public String testGitPull(){
+        return "success";
+    }
 }
