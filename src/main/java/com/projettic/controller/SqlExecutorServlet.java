@@ -2,7 +2,7 @@ package com.projettic.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.projettic.entity.SqlQuery;
-import com.projettic.service.impl.EmpServiceImpl;
+import com.projettic.service.impl.SqlExecutorServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(path = "/sqlExecutor")
-public class EmpDemoServlet {
+public class SqlExecutorServlet {
     static Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
     @Autowired
-    private EmpServiceImpl empServiceImpl;
+    private SqlExecutorServiceImpl empServiceImpl;
 
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/testSql", method = RequestMethod.POST)

@@ -9,7 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 
-public interface EmpDao {
+public interface SqlExecutorDao {
 
     @Select("select * from t_user")
     public List<Account> findAllEmp() throws BadSqlGrammarException;

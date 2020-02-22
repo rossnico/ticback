@@ -2,9 +2,9 @@ package com.projettic.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.projettic.dao.EmpDao;
+import com.projettic.dao.SqlExecutorDao;
 import com.projettic.entity.SqlQuery;
-import com.projettic.entity.StatusCode;
+import com.projettic.service.SqlExecutorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.stereotype.Service;
@@ -13,15 +13,15 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 @Service("empService")
-public class EmpServiceImpl implements com.projettic.service.EmpService {
+public class SqlExecutorServiceImpl implements SqlExecutorService {
 
     @Autowired
-    private EmpDao empDao;
+    private SqlExecutorDao sqlExecutorDao;
 
     @Override
     public String getHisRes(SqlQuery sqlQuery){
         try {
-            List<LinkedHashMap<String, Object>> empList = empDao.getHisResult(sqlQuery);
+            List<LinkedHashMap<String, Object>> empList = sqlExecutorDao.getHisResult(sqlQuery);
             JSONArray jsonArray = new JSONArray();
             for(LinkedHashMap linkedHashMap : empList){
                 JSONObject jsonObject = new JSONObject(linkedHashMap);
