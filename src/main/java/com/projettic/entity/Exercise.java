@@ -3,7 +3,7 @@ package com.projettic.entity;
 public class Exercise {
     private int idExercise;
     private String exerciseText;
-    private String correction;
+    private String exerciseCorrection;
 
     public String getExerciseText() {
         return exerciseText;
@@ -21,11 +21,12 @@ public class Exercise {
         this.idExercise = idExercise;
     }
 
-    public String getCorrection() {
-        return correction;
+    public String getExerciseCorrection() {
+        return exerciseCorrection;
     }
 
-    public void setCorrection(String correction) {
-        this.correction = correction;
+    public void setExerciseCorrection(String exerciseCorrection) {
+        this.exerciseCorrection = exerciseCorrection;
     }
+
 }
