@@ -34,7 +34,7 @@ public enum StatusCode {
     /**
      * 不支持或已经废弃
      */
-    NOT_SUPPORTED(410, "不支持或已经废弃"),
+    UNSUCCESS(410, "Error occured! Require unsuccessfully!"),
 
     /** AuthCode错误 */
     INVALID_AUTHCODE(444, "无效的AuthCode"),

@@ -6,7 +6,7 @@
 #####[4\. User register](#4)
 #####[5\. SQL executor](#5)
 #####[6\. Exercise request](#6)
-
+#####[7\. Add Exercise](#7)
 ---
 
 <h4 id="1">1. User login</h4>
@@ -187,7 +187,7 @@
 
 ``` javascript
 {
-    "sqlQuery":"select * from emp"
+    sqlQuery:"select * from emp"
 }
 ```
 
@@ -240,9 +240,10 @@
 
 ``` javascript
 {
-    "Data":{
+    {"Data":{
+        "exerciseCorrection":"select * from emp",
         "exerciseText":"Veuillez afficher toutes les information dans la table emp","idExercise":1},
-    "ErrorCode":200
+    "ErrorCode":200}
 }
 ```
 
@@ -250,9 +251,57 @@
 ``` javascript
 {
     "ErrorCode":403,
-    "ErrorMessage":"Wrong parameter!"
+    "ErrorMessage":"Wrong parameter! "
 }
 ```
 ---
 
+<h4 id="7">7. Add Exercise</h4>
 
+###### Api function
+> Allow to add new exercise to de database
+
+###### URL
+> ../exercise/addExercise
+
+###### Support format
+> JSON
+
+###### HTTP request methode
+> POST
+
+###### Request parameter
+|Parameter|Required|Type|Explain|
+|:-----  |:-------|:-----|-----                               |
+|exerciseText   |yes   |string|the text of the exercise                    |
+|exerciseCorrection   |yes   |string|the correction of the exercise                      |
+|groupId   |yes   |int|group id                     |
+
+###### Example request
+
+``` javascript
+{
+    "exerciseCorrection":"select * from emp",
+    "exerciseText":"Veuillez afficher toutes les information dans la table emp","idExercise":1
+}
+```
+
+###### Example response of succesful request
+
+``` javascript
+{
+    {"Data":{
+        "exerciseCorrection":"select * from emp",
+        "exerciseText":"Veuillez afficher toutes les information dans la table emp","groupId":1},
+    "ErrorCode":200}
+}
+```
+
+###### Example response of failing request
+``` javascript
+{
+    "ErrorCode":410,
+    "ErrorMessage":"Error occured! Require unsuccessfully!"
+}
+```
+---

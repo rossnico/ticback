@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/../ProjetTIC_Angular/angular.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ProjetTIC_Angular/package.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ProjetTIC_Angular/proxy.config.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ProjetTIC_Angular/proxy.config.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ProjetTIC_Angular/src/app/app.module.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ProjetTIC_Angular/src/app/home/component/home-form/home-form.component.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ProjetTIC_Angular/src/app/student/component/student-exercise/correction.service.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ProjetTIC_Angular/src/app/student/component/student-exercise/index.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ProjetTIC_Angular/src/app/student/component/student-exercise/sql-query.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ProjetTIC_Angular/src/app/student/component/student-exercise/student-exercise.component.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ProjetTIC_Angular/src/app/student/component/student-exercise/student-exercise.component.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ProjetTIC_Angular/src/app/student/component/student-exercise/student-exercise.component.spec.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ProjetTIC_Angular/src/app/student/component/student-exercise/student-exercise.component.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ProjetTIC_Angular/src/app/student/student.module.ts" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../ticfront/src/app/category-one/category-one.component.ts" charset="UTF-8" />

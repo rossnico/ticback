@@ -36,4 +36,9 @@ public class ExerciseServiceImpl implements ExerciseService {
         return jsonObject.toJSONString();
     }
 
+    @Override
+    public void addExercise(Exercise exercise) {
+        exerciseDao.addExercise(exercise);
+    }
+
 }

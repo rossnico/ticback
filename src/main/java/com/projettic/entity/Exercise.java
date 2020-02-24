@@ -5,6 +5,18 @@ public class Exercise {
     private String exerciseText;
     private String exerciseCorrection;
 
+    @Override
+    public String toString() {
+        return "Exercise{" +
+                "idExercise=" + idExercise +
+                ", exerciseText='" + exerciseText + '\'' +
+                ", exerciseCorrection='" + exerciseCorrection + '\'' +
+                ", groupId=" + groupId +
+                '}';
+    }
+
+    private int groupId;
+
     public String getExerciseText() {
         return exerciseText;
     }
@@ -29,4 +41,11 @@ public class Exercise {
         this.exerciseCorrection = exerciseCorrection;
     }
 
+    public int getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
+    }
 }
