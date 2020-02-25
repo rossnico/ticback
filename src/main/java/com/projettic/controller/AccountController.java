@@ -40,7 +40,7 @@ public class AccountController {
         Account reloginAccount = accountService.checkAccount(account);
         if(reloginAccount !=null) {
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("ErrorCode", StatusCode.SUCCESS.getCode());
+            jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
             jsonObject.put("Data", reloginAccount);
             req.getSession().setAttribute("userSession", reloginAccount);
             //res.addCookie(new Cookie("userCookie", JSON.toJSONString(reloginAccount)));
@@ -48,8 +48,8 @@ public class AccountController {
             return jsonObject.toString();
         } else {
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("ErrorCode", StatusCode.UNAUTHORIZED.getCode());
-            jsonObject.put("ErrorMessage", StatusCode.UNAUTHORIZED.getMessage());
+            jsonObject.put("StatusCode", StatusCode.UNAUTHORIZED.getCode());
+            jsonObject.put("StatusMessage", StatusCode.UNAUTHORIZED.getMessage());
             logger.info("Login not success - " + account.getUsername());
             return jsonObject.toString();
         }
@@ -64,8 +64,8 @@ public class AccountController {
     @ResponseBody
     public String notLoginWarning() {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("ErrorCode", StatusCode.NOT_LOGIN.getCode());
-        jsonObject.put("ErrorMessage", StatusCode.NOT_LOGIN.getMessage());
+        jsonObject.put("StatusCode", StatusCode.NOT_LOGIN.getCode());
+        jsonObject.put("StatusMessage", StatusCode.NOT_LOGIN.getMessage());
         return jsonObject.toString();
     }
 
@@ -78,14 +78,14 @@ public class AccountController {
             account.setGroupid(2);
             if(accountService.isExist(account)) {
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.put("ErrorCode", StatusCode.USER_EXIST.getCode());
-                jsonObject.put("ErrorMessage", StatusCode.USER_EXIST.getMessage());
+                jsonObject.put("StatusCode", StatusCode.USER_EXIST.getCode());
+                jsonObject.put("StatusMessage", StatusCode.USER_EXIST.getMessage());
                 logger.info("Register not success - Username or email have already been used");
                 return jsonObject.toString();
             } else {
                 accountService.saveAccount(account);
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.put("ErrorCode", StatusCode.SUCCESS.getCode());
+                jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
                 jsonObject.put("Data", accountService.checkAccount(account));
                 logger.info("User registered - " + jsonObject.toString());
                 return jsonObject.toString();

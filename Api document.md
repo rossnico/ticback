@@ -52,15 +52,15 @@
         "password":"123456",
         "uid":1,
         "username":"titi.toto"},
-    "ErrorCode":200
+    "StatusCode":200
 }
 ```
 
 ###### Example response of failing request
 ``` javascript
 {
-    "ErrorCode":401,
-    "ErrorMessage":"Wrong user name or password!"
+    "StatusCode":401,
+    "StatusMessage":"Wrong user name or password!"
 }
 ```
 ---
@@ -101,8 +101,8 @@
 ###### Example response of failing request
 ``` javascript
 {
-    "ErrorCode":400,
-    "ErrorMessage":"You have not logged in yet!"
+    "StatusCode":400,
+    "StatusMessage":"You have not logged in yet!"
 }
 ```
 ---
@@ -150,15 +150,15 @@
         "password":"123456",
         "uid":1,
         "username":"titi.toto"},
-    "ErrorCode":200
+    "StatusCode":200
 }
 ```
 
 ###### Example response of failing request
 ``` javascript
 {
-    "ErrorCode":402,
-    "ErrorMessage":"Username or email have already been used!"
+    "StatusCode":402,
+    "StatusMessage":"Username or email have already been used!"
 }
 ```
 ---
@@ -242,15 +242,15 @@
     {"Data":{
         "exerciseCorrection":"select * from emp",
         "exerciseText":"Veuillez afficher toutes les information dans la table emp","idExercise":1},
-    "ErrorCode":200}
+    "StatusCode":200}
 }
 ```
 
 ###### Example response of failing request
 ``` javascript
 {
-    "ErrorCode":403,
-    "ErrorMessage":"Wrong parameter! "
+    "StatusCode":403,
+    "StatusMessage":"Wrong parameter! "
 }
 ```
 ---
@@ -292,15 +292,15 @@
     {"Data":{
         "exerciseCorrection":"select * from emp",
         "exerciseText":"Veuillez afficher toutes les information dans la table emp","groupId":1},
-    "ErrorCode":200}
+    "StatusCode":200}
 }
 ```
 
 ###### Example response of failing request
 ``` javascript
 {
-    "ErrorCode":410,
-    "ErrorMessage":"Error occured! Require unsuccessfully!"
+    "StatusCode":410,
+    "StatusMessage":"Error occured! Require unsuccessfully!"
 }
 ```
 ---

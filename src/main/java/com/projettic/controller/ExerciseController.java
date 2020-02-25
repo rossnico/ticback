@@ -37,14 +37,14 @@ public class ExerciseController {
             exerciseService.addExercise(exercise);
             JSONObject jsonObject = new JSONObject();
             logger.info("New exercise added: "+ exercise.toString());
-            jsonObject.put("ErrorCode", StatusCode.SUCCESS.getCode());
-            jsonObject.put("ErrorMessage", StatusCode.SUCCESS.getMessage());
+            jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
+            jsonObject.put("StatusMessage", StatusCode.SUCCESS.getMessage());
             return jsonObject.toString();
         } catch(Exception e){
             JSONObject jsonObject = new JSONObject();
             logger.warn("error when add new exercise: "+ param.toString()+"  "+e.getMessage());
-            jsonObject.put("ErrorCode", StatusCode.UNSUCCESS.getCode());
-            jsonObject.put("ErrorMessage", StatusCode.UNSUCCESS.getMessage());
+            jsonObject.put("StatusCode", StatusCode.UNSUCCESS.getCode());
+            jsonObject.put("StatusMessage", StatusCode.UNSUCCESS.getMessage());
             return jsonObject.toString();
         }
 

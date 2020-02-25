@@ -27,10 +27,10 @@ public class ExerciseServiceImpl implements ExerciseService {
         exercise1 = exerciseDao.findExerciseById(exercise.getIdExercise());
         JSONObject jsonObject = new JSONObject();
         if(exercise1==null){
-            jsonObject.put("ErrorCode", StatusCode.PARAMS_ERROR.getCode());
-            jsonObject.put("ErrorMessage", StatusCode.PARAMS_ERROR.getMessage());
+            jsonObject.put("StatusCode", StatusCode.PARAMS_ERROR.getCode());
+            jsonObject.put("StatusMessage", StatusCode.PARAMS_ERROR.getMessage());
         } else {
-            jsonObject.put("ErrorCode", StatusCode.SUCCESS.getCode());
+            jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
             jsonObject.put("Data", exercise1);
         }
         return jsonObject.toJSONString();
