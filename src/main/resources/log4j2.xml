@@ -2,7 +2,7 @@
 <Configuration status="OFF" monitorInterval="1800">
     <properties>
         <property name="LOG_HOME">/WEB-INF/logs</property>
-        <property name="FILE_NAME">finance-pay</property>
+        <property name="FILE_NAME">DailyRollLog</property>
     </properties>
 
 
