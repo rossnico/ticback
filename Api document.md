@@ -34,12 +34,11 @@
 ###### Example request
 
 ``` javascript
-{
-    "uid":1,
-    "username":"titi.toto"
+{ 
+    "username":"titi.toto",
     "password":"123456", 
     "email":"123456@gmail.com",
-    "groupid":2,
+    "groupid":2
 }
 ```
 
