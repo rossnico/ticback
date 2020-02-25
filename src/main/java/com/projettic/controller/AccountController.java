@@ -31,12 +31,12 @@ public class AccountController {
         return "success";
     }
 
-    //@CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/getLogInfo", method = RequestMethod.POST)
     @ResponseBody()
-    public String userLogin(Account account/*@RequestBody String param*/, HttpServletRequest req, HttpServletResponse res) {
-        //Account account = JSON.parseObject(param, Account.class);
-        account.setEmail(req.getParameter("username"));
+    public String userLogin(@RequestBody String param, HttpServletRequest req, HttpServletResponse res) {
+        Account account = JSON.parseObject(param, Account.class);
+        System.out.println(account.toString());
         Account reloginAccount = accountService.checkAccount(account);
         if(reloginAccount !=null) {
             JSONObject jsonObject = new JSONObject();
@@ -101,13 +101,12 @@ public class AccountController {
         return "register";
     }
 
-    //@CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/logOut")
     public String userLogOut(HttpServletRequest req){
         Account account = (Account) req.getSession().getAttribute("userSession");
         logger.info("Log out - " + account.getUsername());
         req.getSession().removeAttribute("userSession");
-        System.out.println("log out succesffuly!");
         return "login";
     }
 }

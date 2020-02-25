@@ -12,10 +12,16 @@ import java.util.List;
 public interface AccountDao {
 
     @Select("select * from t_user")
-    public List<Account> findAllUser() throws BadSqlGrammarException;
+    List<Account> findAllUser();
 
-    @Select("${sqlQuery}")
-    public List<LinkedHashMap<String, Object>> testQuery(SqlQuery sqlQuery) throws BadSqlGrammarException;
+    @Select("select * from t_user where username = #{username}")
+    Account findUserByName(Account account);
+
+    @Select("select * from t_user where email = #{email}")
+    Account findUserByEmail(Account account);
+
+    @Select("select * from t_user where email=#{email} or username = #{username}")
+    Account isExist(Account account);
 
     @Insert("insert into t_user(username, password, email, groupid) " +
             "values(#{username},#{password},#{email},#{groupid})")

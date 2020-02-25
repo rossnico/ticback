@@ -58,15 +58,17 @@ public class Account {
                 '}';
     }
 
-    public boolean equals(Account account) {
-        if (account.getUsername().equals(this.username) || account.getEmail().equals(this.email)) {
-            return account.getPassword().equals(this.password) && account.getGroupid() == this.groupid;
+    public boolean isEquals(Account accountDb) {
+        if(this.username.length() != 0){
+            if (this.username.equals(accountDb.getUsername())) {
+                return this.password.equals(accountDb.getPassword()) && this.groupid == accountDb.getGroupid();
+            }
         } else {
-            return false;
+            if (this.email.equals(accountDb.getEmail())) {
+                return this.password.equals(accountDb.getPassword()) && this.groupid == accountDb.getGroupid();
+            }
         }
+        return false;
     }
 
-    public boolean exist(Account account) {
-        return account.getUsername().equals(this.username) || account.getEmail().equals(this.email);
-    }
 }

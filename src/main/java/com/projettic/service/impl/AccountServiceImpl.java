@@ -38,10 +38,17 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account checkAccount(Account account) {
-        List<Account> accountList = accountDao.findAllUser();
-        for (Account acc : accountList) {
-            if (acc.equals(account)) {
-                return acc;
+        if (account.getUsername().length() != 0) {
+            Account accountDb = accountDao.findUserByName(account);
+            System.out.println("name "+accountDb.toString());
+            if (account.isEquals(accountDb)) {
+                return accountDb;
+            }
+        } else {
+            Account accountDb = accountDao.findUserByEmail(account);
+            System.out.println("email "+ accountDb.toString());
+            if (account.isEquals(accountDb)) {
+                return accountDb;
             }
         }
         return null;
@@ -49,14 +56,10 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public boolean isExist(Account account) {
-        List<Account> accountList = accountDao.findAllUser();
-        for (Account acc : accountList) {
-            if (acc.exist(account)) {
-                return true;
-            }
+        if(accountDao.isExist(account)!=null){
+            return true;
+        } else {
+            return false;
         }
-        return false;
     }
-
-
 }
