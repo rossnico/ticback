@@ -5,6 +5,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.projettic.entity.Exercise;
 import com.projettic.entity.StatusCode;
 import com.projettic.service.impl.ExerciseServiceImpl;
+
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +32,7 @@ public class ExerciseController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(path="addExercise", method = RequestMethod.POST)
+    @RequestMapping(path="/addExercise", method = RequestMethod.POST)
     @ResponseBody
     public String addExercise(@RequestBody String param){
         try{
@@ -47,6 +50,15 @@ public class ExerciseController {
             jsonObject.put("StatusMessage", StatusCode.UNSUCCESS.getMessage());
             return jsonObject.toString();
         }
-
     }
+    
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path="/getAllExercises", method = RequestMethod.GET)
+    @ResponseBody
+    public String getAll(){
+    	List<Exercise> list = exerciseService.findAll();
+    	return JSON.toJSONString(list);
+    }
+    
+    
 }
