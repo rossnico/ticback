@@ -60,5 +60,15 @@ public class ExerciseController {
     	return JSON.toJSONString(list);
     }
     
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path="/getExercisesByGroup", method = RequestMethod.POST)
+    @ResponseBody
+    public String getExercisesByGroup(@RequestBody String param){
+    	Exercise exercise = JSON.parseObject(param, Exercise.class);
+    	int groupId = exercise.getGroupId();
+    	List<Exercise> list = exerciseService.findByGroup(groupId);
+    	return JSON.toJSONString(list);
+    }
+    
     
 }

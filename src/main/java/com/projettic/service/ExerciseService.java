@@ -8,4 +8,5 @@ public interface ExerciseService {
     List<Exercise> findAll();
     String findById(Exercise exercise);
     void addExercise(Exercise exercise);
+	List<Exercise> findByGroup(int groupId);
 }

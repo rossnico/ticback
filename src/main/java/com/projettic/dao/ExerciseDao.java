@@ -17,4 +17,7 @@ public interface ExerciseDao {
     @Insert("insert into t_exercise(exerciseText, exerciseCorrection, groupId) " +
             "values(#{exerciseText},#{exerciseCorrection},#{groupId})")
     void addExercise(Exercise exercise);
+    
+    @Select("select * from t_exercise where groupId = #{id}")
+    public List<Exercise> findByGroup(int id);
 }

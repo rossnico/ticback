@@ -41,5 +41,10 @@ public class ExerciseServiceImpl implements ExerciseService {
     public void addExercise(Exercise exercise) {
         exerciseDao.addExercise(exercise);
     }
+    
+    @Override
+    public List<Exercise> findByGroup(int groupId) {
+    	return exerciseDao.findByGroup(groupId);
+    }
 
 }
