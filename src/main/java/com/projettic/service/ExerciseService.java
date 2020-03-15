@@ -9,4 +9,7 @@ public interface ExerciseService {
     String findById(Exercise exercise);
     void addExercise(Exercise exercise);
 	List<Exercise> findByGroup(int groupId);
+	Exercise deleteExercise(Exercise exercise);
+	Exercise deleteExerciseById(int id);
+	String findByIdParam(int id);
 }

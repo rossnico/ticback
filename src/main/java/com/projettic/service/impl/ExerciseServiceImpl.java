@@ -36,7 +36,38 @@ public class ExerciseServiceImpl implements ExerciseService {
         }
         return jsonObject.toJSONString();
     }
+    
+    @Override				//C'est pour return l'exercice effacé plus tard
+    public String findByIdParam(int id) {
+       /* Exercise exercise1;
+        exercise1 = exerciseDao.findExerciseById(id);
+        JSONObject jsonObject = new JSONObject();
+        if(exercise1==null){
+            jsonObject.put("StatusCode", StatusCode.PARAMS_ERROR.getCode());
+            jsonObject.put("StatusMessage", StatusCode.PARAMS_ERROR.getMessage());
+        } else {
+            jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
+            jsonObject.put("Data", exercise1);
+        }*/
+        return null; //jsonObject.toJSONString();
+    }
 
+    @Override
+    public Exercise deleteExercise(Exercise exercise) {
+    	Exercise exerciseDb;
+    	exerciseDb = exerciseDao.findExerciseById(exercise.getIdExercise());
+    	exerciseDao.deleteExerciseById(exercise.getIdExercise());
+    	return exerciseDb;
+    }
+    
+    @Override
+    public Exercise deleteExerciseById(int id) {
+    	Exercise exerciseDb;
+    	exerciseDb = exerciseDao.findExerciseById(id);
+    	exerciseDao.deleteExerciseById(id);
+    	return exerciseDb;
+    }
+    
     @Override
     public void addExercise(Exercise exercise) {
         exerciseDao.addExercise(exercise);
@@ -46,5 +77,7 @@ public class ExerciseServiceImpl implements ExerciseService {
     public List<Exercise> findByGroup(int groupId) {
     	return exerciseDao.findByGroup(groupId);
     }
+
+	
 
 }
