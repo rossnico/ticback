@@ -23,7 +23,9 @@ public interface ExerciseDao {
     @Select("select * from t_exercise where groupId = #{id}")
     public List<Exercise> findByGroup(int id);
     
-    //Ezt írtam én!!!
     @Delete("delete from t_exercise where idExercise = #{id}")
     void deleteExerciseById(int id);
+    
+    @Delete("delete from t_exercise where groupId = #{id}")
+    void deleteExercisesByGroupId(int id);
 }

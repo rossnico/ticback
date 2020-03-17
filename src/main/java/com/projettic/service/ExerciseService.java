@@ -12,4 +12,5 @@ public interface ExerciseService {
 	Exercise deleteExercise(Exercise exercise);
 	Exercise deleteExerciseById(int id);
 	String findByIdParam(int id);
+	void deleteExercisesByGroupId(int id);
 }

@@ -69,6 +69,11 @@ public class ExerciseServiceImpl implements ExerciseService {
     }
     
     @Override
+    public void deleteExercisesByGroupId(int id) {
+    	exerciseDao.deleteExercisesByGroupId(id);
+    }
+    
+    @Override
     public void addExercise(Exercise exercise) {
         exerciseDao.addExercise(exercise);
     }
