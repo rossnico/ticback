@@ -70,22 +70,5 @@ public class ExerciseController {
     	return JSON.toJSONString(list);
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(path="/deleteExercise/{id}", method = RequestMethod.DELETE)
-    @ResponseBody
-    public void deleteExercise(@PathVariable  int id) {
-    	//Exercise exerciseDb;
-    	//exerciseService.findByIdParam(id); 		C'est pour return l'exercice effacé plus tard
-    	exerciseService.deleteExerciseById(id);
-		//return exercise;	
-    }
-    
-    @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(path="/deleteExercisesByGroup/{id}", method = RequestMethod.DELETE)
-    @ResponseBody
-    public void deleteExercisesByGroup(@PathVariable  int id) {
-    	exerciseService.deleteExercisesByGroupId(id);
-    }    
-    
     
 }

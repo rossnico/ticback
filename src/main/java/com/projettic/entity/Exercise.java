@@ -3,14 +3,12 @@ package com.projettic.entity;
 public class Exercise {
     private int idExercise;
     private String exerciseText;
-    private String exerciseCorrection;
 
     @Override
     public String toString() {
         return "Exercise{" +
                 "idExercise=" + idExercise +
                 ", exerciseText='" + exerciseText + '\'' +
-                ", exerciseCorrection='" + exerciseCorrection + '\'' +
                 ", groupId=" + groupId +
                 '}';
     }
@@ -31,14 +29,6 @@ public class Exercise {
 
     public void setIdExercise(int idExercise) {
         this.idExercise = idExercise;
-    }
-
-    public String getExerciseCorrection() {
-        return exerciseCorrection;
-    }
-
-    public void setExerciseCorrection(String exerciseCorrection) {
-        this.exerciseCorrection = exerciseCorrection;
     }
 
     public int getGroupId() {
