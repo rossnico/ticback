@@ -2,6 +2,7 @@ package com.projettic.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.projettic.dao.ExerciseDao;
+import com.projettic.entity.Category;
 import com.projettic.entity.Correction;
 import com.projettic.entity.Exercise;
 import com.projettic.entity.StatusCode;
@@ -42,15 +43,21 @@ public class ExerciseServiceImpl implements ExerciseService {
     public void addExercise(Exercise exercise) {
         exerciseDao.addExercise(exercise);
     }
-    
+
     @Override
-    public List<Exercise> findByGroup(int groupId) {
-    	return exerciseDao.findByGroup(groupId);
+    public void deleteExerciseById(Exercise exercise) {
+        exerciseDao.deleteExerciseById(exercise.getIdExercise());
     }
 
     @Override
-    public List<Correction> findAllCorrectionByExercise(Exercise exercise) {
-        return exerciseDao.findAllCorrectionByExercise(exercise.getIdExercise());
+    public void updateExercise(Exercise exercise) {
+        exerciseDao.updateExercise(exercise);
     }
+
+    @Override
+    public List<Exercise> findByCate(Category category) {
+    	return exerciseDao.findByCate(category.getId());
+    }
+
 
 }

@@ -1,16 +1,16 @@
 package com.projettic.entity;
 
 public class Correction {
-    int id;
+    int idCorrection;
     int idExercise;
     String textCorrection;
 
-    public int getId() {
-        return id;
+    public int getIdCorrection() {
+        return idCorrection;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdCorrection(int idCorrection) {
+        this.idCorrection = idCorrection;
     }
 
     public int getIdExercise() {

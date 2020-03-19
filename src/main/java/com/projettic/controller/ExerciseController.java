@@ -2,8 +2,10 @@ package com.projettic.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.projettic.dao.CorrectionDao;
 import com.projettic.entity.Exercise;
 import com.projettic.entity.StatusCode;
+import com.projettic.service.impl.CorrectionServiceImpl;
 import com.projettic.service.impl.ExerciseServiceImpl;
 
 import java.util.List;
@@ -66,7 +68,7 @@ public class ExerciseController {
     public String getExercisesByGroup(@RequestBody String param){
     	Exercise exercise = JSON.parseObject(param, Exercise.class);
     	int groupId = exercise.getGroupId();
-    	List<Exercise> list = exerciseService.findByGroup(groupId);
+    	List<Exercise> list = exerciseService.findByCate(groupId);
     	return JSON.toJSONString(list);
     }
     
