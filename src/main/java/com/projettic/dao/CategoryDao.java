@@ -14,16 +14,16 @@ public interface CategoryDao {
 	@Select("select * from t_category")
 	public List<Category> findAllCategories();
 	
-    @Select("select * from t_category where id = #{id}")
+    @Select("select * from t_category where idCategory = #{id}")
     public Category findCategoryById(int id);
     
-    @Delete("delete from t_category where id = #{id}")
+    @Delete("delete from t_category where idCategory = #{id}")
     public void deleteCategoryById(int id);
     
-    @Insert("insert into t_category(id, name)" +
-            "values(#{id},#{name})")
+    @Insert("insert into t_category(idCategory, nameCategory, orderCategory)" +
+            "values(#{idCategory},#{nameCategory},#{orderCategory})")
     void addCategory(Category category);  
     
-    @Update ("UPDATE t_category set name = #{name} where id =#{id}")
+    @Update ("UPDATE t_category set nameCategory = #{nameCategory}, orderCategory=#{orderCategory} where idCategory =#{idCategory}")
     void updateCategory(Category category);
 }

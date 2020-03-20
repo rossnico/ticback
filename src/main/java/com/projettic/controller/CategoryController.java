@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.projettic.entity.Category;
-import com.projettic.entity.Exercise;
 import com.projettic.entity.StatusCode;
 import com.projettic.service.impl.CategoryServiceImpl;
 
@@ -25,7 +23,6 @@ import com.projettic.service.impl.CategoryServiceImpl;
 @RequestMapping(path="/category")
 public class CategoryController {
     static Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
-    private ExerciseController exerciseController;
 
     @Autowired
     private CategoryServiceImpl categoryService;
