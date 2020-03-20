@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(path = "/sqlExecutor")
-public class SqlExecutorServlet {
+public class SqlExecutorController {
     static Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
     @Autowired
     private SqlExecutorServiceImpl empServiceImpl;
@@ -23,6 +23,12 @@ public class SqlExecutorServlet {
     @ResponseBody()
     public String testsql1(@RequestBody String param) {
         SqlQuery sqlQuery = JSON.parseObject(param, SqlQuery.class);
+        String sqlString = sqlQuery.getSqlQuery();
+        sqlString = sqlString.replace(";","");
+        String sqlStringTrim = sqlString.replaceAll("\\s{1,}", " ");
+        sqlStringTrim = sqlStringTrim.toLowerCase();
+        System.out.println(sqlStringTrim);
+        sqlQuery.setSqlQuery(sqlStringTrim);
         logger.info("input - " + sqlQuery.toString());
         String hisRes = empServiceImpl.getHisRes(sqlQuery);
         return hisRes;

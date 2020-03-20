@@ -2,8 +2,10 @@ package com.projettic.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.projettic.dao.CorrectionDao;
 import com.projettic.entity.Exercise;
 import com.projettic.entity.StatusCode;
+import com.projettic.service.impl.CorrectionServiceImpl;
 import com.projettic.service.impl.ExerciseServiceImpl;
 
 import java.util.List;
@@ -66,26 +68,9 @@ public class ExerciseController {
     public String getExercisesByGroup(@RequestBody String param){
     	Exercise exercise = JSON.parseObject(param, Exercise.class);
     	int groupId = exercise.getGroupId();
-    	List<Exercise> list = exerciseService.findByGroup(groupId);
+    	List<Exercise> list = exerciseService.findByCate(groupId);
     	return JSON.toJSONString(list);
     }
-    
-    @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(path="/deleteExercise/{id}", method = RequestMethod.DELETE)
-    @ResponseBody
-    public void deleteExercise(@PathVariable  int id) {
-    	//Exercise exerciseDb;
-    	//exerciseService.findByIdParam(id); 		C'est pour return l'exercice effacé plus tard
-    	exerciseService.deleteExerciseById(id);
-		//return exercise;	
-    }
-    
-    @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(path="/deleteExercisesByGroup/{id}", method = RequestMethod.DELETE)
-    @ResponseBody
-    public void deleteExercisesByGroup(@PathVariable  int id) {
-    	exerciseService.deleteExercisesByGroupId(id);
-    }    
     
     
 }

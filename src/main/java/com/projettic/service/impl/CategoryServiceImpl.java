@@ -18,10 +18,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
     private CategoryDao categoryDao;
-    
-    @Autowired
-    private ExerciseService exerciseService;
-    
+
     @Override
     public List<Category> findAll() {
     	List<Category> list = categoryDao.findAllCategories();
@@ -36,9 +33,8 @@ public class CategoryServiceImpl implements CategoryService {
     }
     
     @Override
-    public void deleteCategoryById(int id) {
-    	categoryDao.deleteCategoryById(id);
-    	exerciseService.deleteExercisesByGroupId(id);
+    public void deleteCategoryById(Category category) {
+    	categoryDao.deleteCategoryById(category.getId());
     }
     
     @Override

@@ -2,6 +2,10 @@ package com.projettic.entity;
 
 
 public class SqlQuery {
+    public String getSqlQuery() {
+        return sqlQuery;
+    }
+
     private String sqlQuery;
 
 
