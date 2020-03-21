@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -44,13 +43,13 @@ public class AccountController {
             jsonObject.put("Data", reloginAccount);
             req.getSession().setAttribute("userSession", reloginAccount);
             //res.addCookie(new Cookie("userCookie", JSON.toJSONString(reloginAccount)));
-            logger.info("Login - " + reloginAccount.getUsername());
+            logger.info("Login - " + reloginAccount.getUserName());
             return jsonObject.toString();
         } else {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("StatusCode", StatusCode.UNAUTHORIZED.getCode());
             jsonObject.put("StatusMessage", StatusCode.UNAUTHORIZED.getMessage());
-            logger.info("Login not success - " + account.getUsername());
+            logger.info("Login not success - " + account.getUserName());
             return jsonObject.toString();
         }
     }
@@ -75,7 +74,7 @@ public class AccountController {
     public String userRegister(@RequestBody String param) {
         try {
             Account account = JSON.parseObject(param,Account.class);
-            account.setGroupid(2);
+            account.setUserClass(2);
             if(accountService.isExist(account)) {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("StatusCode", StatusCode.USER_EXIST.getCode());
@@ -105,7 +104,7 @@ public class AccountController {
     @RequestMapping(path = "/logOut")
     public String userLogOut(HttpServletRequest req){
         Account account = (Account) req.getSession().getAttribute("userSession");
-        logger.info("Log out - " + account.getUsername());
+        logger.info("Log out - " + account.getUserName());
         req.getSession().removeAttribute("userSession");
         return "login";
     }

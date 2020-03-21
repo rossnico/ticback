@@ -6,6 +6,28 @@
 
   <display-name>ProjetTIC</display-name>
 
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:spring/applicationContext.xml</param-value>
+  </context-param>
+
+  <!--  log4j2 configuration-->
+  <filter>
+    <filter-name>log4jServletFilter</filter-name>
+    <filter-class>org.apache.logging.log4j.web.Log4jServletFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>log4jServletFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <!--    <dispatcher>REQUEST</dispatcher>-->
+    <!--    <dispatcher>FORWARD</dispatcher>-->
+    <!--    <dispatcher>INCLUDE</dispatcher>-->
+    <!--    <dispatcher>ERROR</dispatcher>-->
+  </filter-mapping>
+
+  <listener>
+    <listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>
+  </listener>
 <!--  Listener configuration-->
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -27,32 +49,11 @@
     <servlet-name>ClientDispatcherServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-  <context-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:spring/applicationContext.xml</param-value>
-  </context-param>
 
 <!--  session configuration-->
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
-
-<!--  log4j2 configuration-->
-  <listener>
-    <listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>
-  </listener>
-  <filter>
-    <filter-name>log4jServletFilter</filter-name>
-    <filter-class>org.apache.logging.log4j.web.Log4jServletFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>log4jServletFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-<!--    <dispatcher>REQUEST</dispatcher>-->
-<!--    <dispatcher>FORWARD</dispatcher>-->
-<!--    <dispatcher>INCLUDE</dispatcher>-->
-<!--    <dispatcher>ERROR</dispatcher>-->
-  </filter-mapping>
 
   <welcome-file-list>
     <welcome-file>/WEB-INF/jsp/index.jsp</welcome-file>

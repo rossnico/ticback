@@ -1,71 +1,71 @@
 package com.projettic.entity;
 
 public class Account {
-    private int uid;
-    private String username;
-    private String password;
-    private String email;
-    private int groupid;
+    private int userId;
+    private String userName;
+    private String userPassword;
+    private String userEmail;
+    private int userClass;
 
-    public int getUid() {
-        return uid;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUid(int uid) {
-        this.uid = uid;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getPassword() {
-        return password;
+    public String getUserPassword() {
+        return userPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
-    public int getGroupid() {
-        return groupid;
+    public int getUserClass() {
+        return userClass;
     }
 
-    public void setGroupid(int groupid) {
-        this.groupid = groupid;
+    public void setUserClass(int userClass) {
+        this.userClass = userClass;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "uid=" + uid +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", groupid=" + groupid +
+                "uid=" + userId +
+                ", username='" + userName + '\'' +
+                ", password='" + userPassword + '\'' +
+                ", email='" + userEmail + '\'' +
+                ", groupid=" + userClass +
                 '}';
     }
 
     public boolean isEquals(Account accountDb) {
-        if(this.username.length() != 0){
-            if (this.username.equals(accountDb.getUsername())) {
-                return this.password.equals(accountDb.getPassword()) && this.groupid == accountDb.getGroupid();
+        if(this.userName.length() != 0){
+            if (this.userName.equals(accountDb.getUserName())) {
+                return this.userPassword.equals(accountDb.getUserPassword()) && this.userClass == accountDb.getUserClass();
             }
         } else {
-            if (this.email.equals(accountDb.getEmail())) {
-                return this.password.equals(accountDb.getPassword()) && this.groupid == accountDb.getGroupid();
+            if (this.userEmail.equals(accountDb.getUserEmail())) {
+                return this.userPassword.equals(accountDb.getUserPassword()) && this.userClass == accountDb.getUserClass();
             }
         }
         return false;

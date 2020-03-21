@@ -26,8 +26,7 @@ public class ExerciseServiceImpl implements ExerciseService {
 
     @Override
     public String findById(Exercise exercise) {
-        Exercise exercise1;
-        exercise1 = exerciseDao.findExerciseById(exercise.getIdExercise());
+        Exercise exercise1 = exerciseDao.findExerciseById(exercise.getIdExercise());
         JSONObject jsonObject = new JSONObject();
         if(exercise1==null){
             jsonObject.put("StatusCode", StatusCode.PARAMS_ERROR.getCode());
@@ -55,8 +54,8 @@ public class ExerciseServiceImpl implements ExerciseService {
     }
 
     @Override
-    public List<Exercise> findByCate(Category category) {
-    	return exerciseDao.findByCate(category.getId());
+    public List<Exercise> findByCate(int id) {
+    	return exerciseDao.findByCate(id);
     }
 
 

@@ -3,6 +3,7 @@ package com.projettic.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.projettic.dao.CorrectionDao;
+import com.projettic.entity.Category;
 import com.projettic.entity.Exercise;
 import com.projettic.entity.StatusCode;
 import com.projettic.service.impl.CorrectionServiceImpl;
@@ -30,6 +31,7 @@ public class ExerciseController {
     @ResponseBody
     public String reqExercise(@RequestBody String param){
         Exercise exercise = JSON.parseObject(param, Exercise.class);
+        System.out.println(exercise.toString());
         return exerciseService.findById(exercise);
     }
 
@@ -39,6 +41,7 @@ public class ExerciseController {
     public String addExercise(@RequestBody String param){
         try{
             Exercise exercise = JSON.parseObject(param, Exercise.class);
+            System.out.println(exercise.toString());
             exerciseService.addExercise(exercise);
             JSONObject jsonObject = new JSONObject();
             logger.info("New exercise added: "+ exercise.toString());
@@ -66,11 +69,9 @@ public class ExerciseController {
     @RequestMapping(path="/getExercisesByGroup", method = RequestMethod.POST)
     @ResponseBody
     public String getExercisesByGroup(@RequestBody String param){
-    	Exercise exercise = JSON.parseObject(param, Exercise.class);
-    	int groupId = exercise.getGroupId();
-    	List<Exercise> list = exerciseService.findByCate(groupId);
+        Category category = JSON.parseObject(param, Category.class);
+        System.out.println(category.toString());
+    	List<Exercise> list = exerciseService.findByCate(category.getIdCategory());
     	return JSON.toJSONString(list);
     }
-    
-    
 }

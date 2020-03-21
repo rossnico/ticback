@@ -12,6 +12,6 @@ public interface ExerciseService {
     void addExercise(Exercise exercise);
     void deleteExerciseById(Exercise exercise);
     void updateExercise(Exercise exercise);
-	List<Exercise> findByCate(Category category);
+	List<Exercise> findByCate(int id);
 
 }

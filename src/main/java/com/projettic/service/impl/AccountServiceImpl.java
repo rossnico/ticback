@@ -38,14 +38,14 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account checkAccount(Account account) {
-        if (account.getUsername().length() != 0) {
-            Account accountDb = accountDao.findUserByName(account);
+        if (account.getUserName().length() != 0) {
+            Account accountDb = accountDao.findUserByName(account.getUserName());
             System.out.println("name "+accountDb.toString());
             if (account.isEquals(accountDb)) {
                 return accountDb;
             }
         } else {
-            Account accountDb = accountDao.findUserByEmail(account);
+            Account accountDb = accountDao.findUserByEmail(account.getUserEmail());
             System.out.println("email "+ accountDb.toString());
             if (account.isEquals(accountDb)) {
                 return accountDb;

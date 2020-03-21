@@ -9,7 +9,7 @@ public enum StatusCode {
     /**
      * 成功
      */
-    SUCCESS(200, "Login successfully"),
+    SUCCESS(200, "Require successfully"),
 
     /**
      * 没有登录

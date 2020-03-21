@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSON;
 import com.projettic.dao.CategoryDao;
 import com.projettic.entity.Category;
-import com.projettic.entity.Exercise;
 import com.projettic.service.CategoryService;
-import com.projettic.service.ExerciseService;
 
 @Service("categoryService")
 public class CategoryServiceImpl implements CategoryService {
@@ -26,15 +24,15 @@ public class CategoryServiceImpl implements CategoryService {
     
     @Override
     public String findById(Category category) {
-	    Category cat = categoryDao.findCategoryById(category.getId());
+	    Category cat = categoryDao.findCategoryById(category.getIdCategory());
 	    return JSON.toJSONString(cat);
     }
     
     @Override
-    public void deleteCategoryById(Category category) {
-    	categoryDao.deleteCategoryById(category.getId());
+    public void deleteCategoryById(int id) {
+        categoryDao.deleteCategoryById(id);
     }
-    
+
     @Override
     public void addCategory(Category category) {
         categoryDao.addCategory(category);

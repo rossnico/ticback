@@ -2,25 +2,23 @@ package com.projettic.entity;
 
 public class Exercise {
     private int idExercise;
-    private String exerciseText;
+    private String textExercise;
+    private String idCategory;
 
-    @Override
-    public String toString() {
-        return "Exercise{" +
-                "idExercise=" + idExercise +
-                ", exerciseText='" + exerciseText + '\'' +
-                ", groupId=" + groupId +
-                '}';
+    public String getIdCategory() {
+        return idCategory;
     }
 
-    private int groupId;
-
-    public String getExerciseText() {
-        return exerciseText;
+    public void setIdCategory(String idCategory) {
+        this.idCategory = idCategory;
     }
 
-    public void setExerciseText(String exerciseText) {
-        this.exerciseText = exerciseText;
+    public String getTextExercise() {
+        return textExercise;
+    }
+
+    public void setTextExercise(String textExercise) {
+        this.textExercise = textExercise;
     }
 
     public int getIdExercise() {
@@ -31,11 +29,12 @@ public class Exercise {
         this.idExercise = idExercise;
     }
 
-    public int getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(int groupId) {
-        this.groupId = groupId;
+    @Override
+    public String toString() {
+        return "Exercise{" +
+                "idExercise=" + idExercise +
+                ", exerciseText='" + textExercise + '\'' +
+                ", idCategory='" + idCategory + '\'' +
+                '}';
     }
 }

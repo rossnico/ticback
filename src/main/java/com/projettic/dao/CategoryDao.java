@@ -3,27 +3,33 @@ package com.projettic.dao;
 import com.projettic.entity.Category;
 import com.projettic.entity.Exercise;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 public interface CategoryDao {
 	@Select("select * from t_category")
-	public List<Category> findAllCategories();
+    @Results(id = "categoryMapper", value = {
+            @Result(id=true, column = "id_category", property = "idCategory"),
+            @Result(column = "name_category", property = "nameCategory"),
+            @Result(column = "order_category", property = "orderCategory")
+    })
+	List<Category> findAllCategories();
 	
-    @Select("select * from t_category where id = #{id}")
-    public Category findCategoryById(int id);
+    @Select("select * from t_category where id_category = #{id}")
+    @ResultMap("categoryMapper")
+    Category findCategoryById(int id);
     
-    @Delete("delete from t_category where id = #{id}")
-    public void deleteCategoryById(int id);
+    @Delete("delete from t_category where id_category = #{id}")
+    @ResultMap("categoryMapper")
+    void deleteCategoryById(int id);
     
-    @Insert("insert into t_category(id, name)" +
-            "values(#{id},#{name})")
+    @Insert("insert into t_category(order_category, name_category)" +
+            "values(#{orderCategory},#{nameCategory})")
+    @ResultMap("categoryMapper")
     void addCategory(Category category);  
     
-    @Update ("UPDATE t_category set name = #{name} where id =#{id}")
+    @Update ("UPDATE t_category set name_category = #{nameCategory}, order_category =#{orderCategory} where id_category=#{idCategory}")
+    @ResultMap("categoryMapper")
     void updateCategory(Category category);
 }

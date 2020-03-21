@@ -2,13 +2,12 @@ package com.projettic.controller;
 
 import java.util.List;
 
+import com.sun.xml.internal.bind.v2.TODO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.projettic.entity.Category;
-import com.projettic.entity.Exercise;
 import com.projettic.entity.StatusCode;
 import com.projettic.service.impl.CategoryServiceImpl;
 
@@ -42,15 +40,18 @@ public class CategoryController {
     @RequestMapping(path="/getCategoryById", method = RequestMethod.POST)
     @ResponseBody
     public String getById(@RequestBody String param) {
+        //TODO log, exception
     	Category category = JSON.parseObject(param, Category.class);
     	return categoryService.findById(category);
     }
     
     @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(path="/deleteCategory/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(path="/deleteCategory", method = RequestMethod.DELETE)
     @ResponseBody
-    public void deleteCategory(@PathVariable  int id) {
-    	categoryService.deleteCategoryById(id);
+    public void deleteCategory(@RequestBody String param) {
+        //TODO log, exception
+        Category category = JSON.parseObject(param, Category.class);
+    	categoryService.deleteCategoryById(category.getIdCategory());
     }
     
     @CrossOrigin(origins = "http://localhost:4200")
@@ -78,6 +79,7 @@ public class CategoryController {
     @RequestMapping(path="/updateCategory", method = RequestMethod.POST)
     @ResponseBody
     public void updateCategory(@RequestBody String param) {
+        //TODO log, exception
     	Category category = JSON.parseObject(param, Category.class);
         categoryService.updateCategory(category);
     }
