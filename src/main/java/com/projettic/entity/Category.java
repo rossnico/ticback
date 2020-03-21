@@ -1,6 +1,8 @@
 package com.projettic.entity;
 
-public class Category {
+import java.util.Comparator;
+
+public class Category{
 	
 	private int idCategory;
 	private String nameCategory;
@@ -33,5 +35,5 @@ public class Category {
 	public void setOrderCategory(int orderCategory) {
 		this.orderCategory = orderCategory;
 	}
-	
+
 }

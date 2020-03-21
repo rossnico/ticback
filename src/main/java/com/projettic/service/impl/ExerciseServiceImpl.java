@@ -44,8 +44,8 @@ public class ExerciseServiceImpl implements ExerciseService {
     }
 
     @Override
-    public void deleteExerciseById(Exercise exercise) {
-        exerciseDao.deleteExerciseById(exercise.getIdExercise());
+    public void deleteExerciseById(int idExercise) {
+        exerciseDao.deleteExerciseById(idExercise);
     }
 
     @Override

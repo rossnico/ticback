@@ -20,7 +20,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public List<Category> findAll() {
     	List<Category> list = categoryDao.findAllCategories();
-    	list.sort(new ComparatorImpl());
+    	list.sort(Comparator.comparingInt(Category::getOrderCategory));
     	return list;
     }
     
@@ -46,10 +46,4 @@ public class CategoryServiceImpl implements CategoryService {
     }
 }
 
-class ComparatorImpl implements Comparator<Category> 
-{ 
-    public int compare(Category a, Category b) 
-    { 
-        return a.getOrderCategory() - b.getOrderCategory(); 
-    } 
-} 
+

@@ -56,6 +56,14 @@ public class ExerciseController {
             return jsonObject.toString();
         }
     }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path="/deleteExercise/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public void deleteExercise(@PathVariable int id){
+        //TODO log,exception
+        exerciseService.deleteExerciseById(id);
+    }
     
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path="/getAllExercises", method = RequestMethod.GET)
