@@ -1,15 +1,32 @@
 #Catalog
 
-#####[1\. User login](#1)
-#####[2\. User logout](#2)
-#####[3\. User login status test](#3)
-#####[4\. User register](#4)
-#####[5\. SQL executor](#5)
-#####[6\. Exercise request](#6)
-#####[7\. Add Exercise](#7)
----
+##[1\. Account services](#1)
+#####[1.1\. User login](#1.1)
+#####[1.2\. User logout](#1.2)
+#####[1.3\. User login status test](#1.3)
+#####[1.4\. User register](#1.4)
+##[2\. SQL executor](#2)
+##[3\. Category services](#4)
+#####[3.1\. Get all categories](#3.1)
+#####[3.2\. Add category](#3.2)
+#####[3.3\. Update category](#3.3)
+#####[3.4\. Delete category](#3.4)
+##[4\. Exercise services](#4)
+#####[4.1\. Exercise request](#4.1)
+#####[4.2\. Get all exercises](#4.2)
+#####[4.3\. Get all exercises by category](#4.3)
+#####[4.4\. Add exercise](#4.4)
+#####[4.5\. Update exercise ](#4.5)
+#####[4.6\. Delete exercise](#4.6)
+##[5\. Correction services](#5)
+#####[5.1\. Get all corrections by exercise](#5.1)
+#####[5.2\. Add correction](#5.2)
+#####[5.3\. Update correction](#5.3)
+#####[5.4\. Delete correction](#5.4)
 
-<h4 id="1">1. User login</h4>
+---
+<h2 id="1">1. Account services</h2>
+<h4 id="1.1">1.1 User login</h4>
 
 ###### Api function
 > Allow normal user and administrator to login and create session
@@ -35,10 +52,10 @@
 
 ``` javascript
 { 
-    "username":"titi.toto",
-    "password":"123456", 
-    "email":"123456@gmail.com",
-    "groupid":2
+    "userName":"titi.toto",
+    "userPassword":"123456", 
+    "userEmail":"titi.toto@gmail.com",
+    "userClass":2
 }
 ```
 
@@ -47,7 +64,7 @@
 ``` javascript
 {
     "Data":{
-        "email":"123456@gmail.com",
+        "email":"titi.toto@gmail.com",
         "groupid":1,
         "password":"123456",
         "uid":1,
@@ -64,7 +81,7 @@
 }
 ```
 ---
-<h4 id="2">2. User logout</h4>
+<h4 id="1.2">1.2. User logout</h4>
 
 ###### Api function
 > Allow user to log out
@@ -80,7 +97,7 @@
 >this response will redirect user to the homepage or login page
 
 ---
-<h4 id="3">3. User login status test</h4>
+<h4 id="1.3">1.3. User login status test</h4>
 ###### Api function
 > Allow developper to test the status of login
 
@@ -106,7 +123,7 @@
 }
 ```
 ---
-<h4 id="4">4. User register</h4>
+<h4 id="1.4">1.4. User register</h4>
 
 ###### Api function
 > Allow normal users to create their accounts
@@ -163,7 +180,7 @@
 ```
 ---
 
-<h4 id="5">5. SQL executor</h4>
+<h2 id="2">2. SQL executor</h2>
 
 ###### Api function
 > Allow normal user to execute their SQL query
@@ -207,8 +224,8 @@
 }
 ```
 ---
-
-<h4 id="6">6. Exercise request</h4>
+<h2 id="4">4. Exercise services</h2>
+<h4 id="4.1">4.1. Exercise request</h4>
 
 ###### Api function
 > Request for exercises
@@ -240,8 +257,7 @@
 ``` javascript
 {
     {"Data":{
-        "exerciseCorrection":"select * from emp",
-        "exerciseText":"Veuillez afficher toutes les information dans la table emp","idExercise":1},
+        "exerciseText":"Veuillez afficher toutes les information dans la table emp","idExercise":1,"idCategory":1},
     "StatusCode":200}
 }
 ```
@@ -255,7 +271,7 @@
 ```
 ---
 
-<h4 id="7">7. Add Exercise</h4>
+<h4 id="4.4">4.4. Add Exercise</h4>
 
 ###### Api function
 > Allow to add new exercise to de database
@@ -280,8 +296,8 @@
 
 ``` javascript
 {
-    "exerciseCorrection":"select * from emp",
-    "exerciseText":"Veuillez afficher toutes les information dans la table emp","idExercise":1
+    "textExercise":"Veuillez afficher toutes les information dans la table emp",
+    "idCategory":"1"
 }
 ```
 
@@ -289,10 +305,8 @@
 
 ``` javascript
 {
-    {"Data":{
-        "exerciseCorrection":"select * from emp",
-        "exerciseText":"Veuillez afficher toutes les information dans la table emp","groupId":1},
-    "StatusCode":200}
+    "StatusCode":200,
+    "StatusMessage":"Require successfully"
 }
 ```
 

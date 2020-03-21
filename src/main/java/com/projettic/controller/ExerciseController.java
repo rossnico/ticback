@@ -60,9 +60,10 @@ public class ExerciseController {
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path="/deleteExercise/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public void deleteExercise(@PathVariable int id){
-        //TODO log,exception
+    public String deleteExercise(@PathVariable int id){
+        //TODO log,exception,return
         exerciseService.deleteExerciseById(id);
+        return null;
     }
     
     @CrossOrigin(origins = "http://localhost:4200")
@@ -78,8 +79,17 @@ public class ExerciseController {
     @ResponseBody
     public String getExercisesByGroup(@RequestBody String param){
         Category category = JSON.parseObject(param, Category.class);
-        System.out.println(category.toString());
     	List<Exercise> list = exerciseService.findByCate(category.getIdCategory());
     	return JSON.toJSONString(list);
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path="/updateExercise", method = RequestMethod.POST)
+    @ResponseBody
+    public String updateExercise(@RequestBody String param){
+        //TODO log,exception,return
+        Exercise exercise = JSON.parseObject(param, Exercise.class);
+        exerciseService.updateExercise(exercise);
+        return null;
     }
 }

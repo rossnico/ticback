@@ -48,10 +48,11 @@ public class CategoryController {
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path="/deleteCategory", method = RequestMethod.POST)
     @ResponseBody
-    public void deleteCategory(@RequestBody String param) {
+    public String deleteCategory(@RequestBody String param) {
         //TODO log, exception
         Category category = JSON.parseObject(param, Category.class);
     	categoryService.deleteCategoryById(category.getIdCategory());
+    	return null;
     }
     
     @CrossOrigin(origins = "http://localhost:4200")
@@ -78,10 +79,11 @@ public class CategoryController {
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path="/updateCategory", method = RequestMethod.POST)
     @ResponseBody
-    public void updateCategory(@RequestBody String param) {
+    public String updateCategory(@RequestBody String param) {
         //TODO log, exception
     	Category category = JSON.parseObject(param, Category.class);
         categoryService.updateCategory(category);
+        return null;
     }
 
 
