@@ -1,5 +1,6 @@
 package com.projettic.service.impl;
 
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public List<Category> findAll() {
     	List<Category> list = categoryDao.findAllCategories();
+    	list.sort(new ComparatorImpl());
     	return list;
     }
     
@@ -43,3 +45,11 @@ public class CategoryServiceImpl implements CategoryService {
         categoryDao.updateCategory(category);
     }
 }
+
+class ComparatorImpl implements Comparator<Category> 
+{ 
+    public int compare(Category a, Category b) 
+    { 
+        return a.getOrderCategory() - b.getOrderCategory(); 
+    } 
+} 
