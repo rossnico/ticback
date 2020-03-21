@@ -44,9 +44,9 @@
 |Parameter|Required|Type|Explain|
 |:-----  |:-------|:-----|-----                               |
 |username    |yes(or no if use email)    |string|Username for login                          |
-|password    |yes    |string   |Password|
-|email    |yes(or no if use username)    |string   |email address|
-|groupid    |yes    |int   |1.Administrator 2.Normal user(defaut)|
+|userPassword    |yes    |string   |Password|
+|userEmail    |yes(or no if use username)    |string   |email address|
+|userClass    |yes    |int   |1.Administrator 2.Normal user(defaut)|
 
 ###### Example request
 
@@ -64,11 +64,11 @@
 ``` javascript
 {
     "Data":{
-        "email":"titi.toto@gmail.com",
-        "groupid":1,
-        "password":"123456",
-        "uid":1,
-        "username":"titi.toto"},
+        "userClass":2,
+        "userEmail":"titi.toto@gmail.com",
+        "userId":1,
+        "userName":"titi.toto",
+        "userPassword":"123456"},
     "StatusCode":200
 }
 ```

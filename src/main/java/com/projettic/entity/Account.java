@@ -49,25 +49,26 @@ public class Account {
 
     @Override
     public String toString() {
-        return "User{" +
-                "uid=" + userId +
-                ", username='" + userName + '\'' +
-                ", password='" + userPassword + '\'' +
-                ", email='" + userEmail + '\'' +
-                ", groupid=" + userClass +
+        return "Account{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userClass=" + userClass +
                 '}';
     }
 
     public boolean isEquals(Account accountDb) {
-        if(this.userName.length() != 0){
-            if (this.userName.equals(accountDb.getUserName())) {
-                return this.userPassword.equals(accountDb.getUserPassword()) && this.userClass == accountDb.getUserClass();
-            }
-        } else {
-            if (this.userEmail.equals(accountDb.getUserEmail())) {
-                return this.userPassword.equals(accountDb.getUserPassword()) && this.userClass == accountDb.getUserClass();
-            }
-        }
-        return false;
+//        if(this.userName.length() != 0){
+//            if (this.userName.equals(accountDb.getUserName())) {
+//                return this.userPassword.equals(accountDb.getUserPassword()) && this.userClass == accountDb.getUserClass();
+//            }
+//        } else {
+//            if (this.userEmail.equals(accountDb.getUserEmail())) {
+//                return this.userPassword.equals(accountDb.getUserPassword()) && this.userClass == accountDb.getUserClass();
+//            }
+//        }
+//        return false;
+        return (this.getUserPassword().equals(accountDb.getUserPassword()));
     }
 }

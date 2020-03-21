@@ -35,6 +35,7 @@ public class AccountController {
     @ResponseBody()
     public String userLogin(@RequestBody String param, HttpServletRequest req, HttpServletResponse res) {
         Account account = JSON.parseObject(param, Account.class);
+        account.setUserEmail(account.getUserName());
         System.out.println(account.toString());
         Account reloginAccount = accountService.checkAccount(account);
         if(reloginAccount !=null) {

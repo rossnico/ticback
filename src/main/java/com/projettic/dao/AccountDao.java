@@ -24,11 +24,11 @@ public interface AccountDao {
     @ResultMap("accountMapper")
     Account findUserByName(String userName);
 
-    @Select("select * from t_user where email = #{email}")
+    @Select("select * from t_user where user_email = #{userEmail}")
     @ResultMap("accountMapper")
     Account findUserByEmail(String email);
 
-    @Select("select * from t_user where email=#{email} or username = #{username}")
+    @Select("select * from t_user where user_email=#{userEmail} or user_name = #{userName}")
     @ResultMap("accountMapper")
     Account isExist(Account account);
 
