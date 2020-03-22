@@ -21,6 +21,7 @@ public class CorrectionServiceImpl implements CorrectionService {
 
     @Override
     public void addCorrection(Correction correction) {
+    	System.out.println(correction.getIdExercise()+correction.getTextCorrection());
         correctionDao.addCorrection(correction);
     }
 
