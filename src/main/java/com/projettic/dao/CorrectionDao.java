@@ -15,7 +15,7 @@ public interface CorrectionDao {
     List<Correction> findAllCorrectionByExercise(int idExercise);
 
     @Insert("insert into t_correction(id_exercise,text_correction)" +
-            "values(#{idExercise},#{textCorrection}")
+            "values(#{idExercise},#{textCorrection})")
     @ResultMap("correctionMapper")
     void addCorrection(Correction correction);
 

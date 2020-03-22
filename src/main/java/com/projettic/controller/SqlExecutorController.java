@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class SqlExecutorController {
     static Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
     @Autowired
-    private SqlExecutorServiceImpl empServiceImpl;
+    private SqlExecutorServiceImpl sqlExecutorService;
 
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/testSql", method = RequestMethod.POST)
@@ -26,10 +26,9 @@ public class SqlExecutorController {
         sqlString = sqlString.replace(";", "");
         String sqlStringTrim = sqlString.replaceAll("\\s{1,}", " ");
         sqlStringTrim = sqlStringTrim.toLowerCase();
-        System.out.println(sqlStringTrim);
         sqlQuery.setSqlQuery(sqlStringTrim);
         logger.info("input sql - " + sqlQuery.toString());
-        String hisRes = empServiceImpl.getHisRes(sqlQuery);
+        String hisRes = sqlExecutorService.getSqlResult(sqlQuery);
         return hisRes;
     }
 
@@ -42,8 +41,8 @@ public class SqlExecutorController {
         sqlString = sqlString.replace(";", "");
         String sqlStringTrim = sqlString.replaceAll("\\s{1,}", " ");
         sqlStringTrim = sqlStringTrim.toLowerCase();
-        return null;
+        sqlQuery.setSqlQuery(sqlStringTrim);
+        System.out.println(sqlQuery.toString());
+        return sqlExecutorService.correctSql(sqlQuery);
     }
-
-
 }

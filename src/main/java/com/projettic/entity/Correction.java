@@ -28,4 +28,13 @@ public class Correction {
     public void setTextCorrection(String textCorrection) {
         this.textCorrection = textCorrection;
     }
+
+    @Override
+    public String toString() {
+        return "Correction{" +
+                "idCorrection=" + idCorrection +
+                ", idExercise=" + idExercise +
+                ", textCorrection='" + textCorrection + '\'' +
+                '}';
+    }
 }

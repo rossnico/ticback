@@ -6,6 +6,11 @@ public class SqlQuery {
     private int idExercise;
     private String sqlQuery;
 
+    public SqlQuery(int idExercise, String sqlQuery) {
+        this.idExercise = idExercise;
+        this.sqlQuery = sqlQuery;
+    }
+
     public int getIdExercise() {
         return idExercise;
     }

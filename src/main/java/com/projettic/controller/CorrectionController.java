@@ -29,7 +29,9 @@ public class CorrectionController {
     @ResponseBody
     public String addExercise(@RequestBody String parem) {
         //TODO log,exception,return
+
         Correction correction = JSON.parseObject(parem, Correction.class);
+        System.out.println(correction.toString());
         correctionService.addCorrection(correction);
         return null;
     }
