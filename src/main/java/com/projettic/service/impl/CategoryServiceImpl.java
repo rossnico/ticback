@@ -50,5 +50,3 @@ public class CategoryServiceImpl implements CategoryService {
         categoryDao.updateCategory(category);
     }
 }
-
-
