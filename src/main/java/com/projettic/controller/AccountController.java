@@ -91,7 +91,7 @@ public class AccountController {
                 return jsonObject.toString();
             }
         } catch (Exception e) {
-            logger.error(e.getMessage());
+            logger.error(e.toString());
             return e.getMessage();
         }
     }

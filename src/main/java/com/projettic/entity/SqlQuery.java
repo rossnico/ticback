@@ -2,19 +2,30 @@ package com.projettic.entity;
 
 
 public class SqlQuery {
-    public String getSqlQuery() {
-        return sqlQuery;
-    }
 
+    private int idExercise;
     private String sqlQuery;
 
+    public int getIdExercise() {
+        return idExercise;
+    }
+
+    public void setIdExercise(int idExercise) {
+        this.idExercise = idExercise;
+    }
 
     public void setSqlQuery(String sqlQuery) {
         this.sqlQuery = sqlQuery;
     }
+    public String getSqlQuery() {
+        return sqlQuery;
+    }
 
     @Override
     public String toString() {
-        return this.sqlQuery;
+        return "SqlQuery{" +
+                "idExercise=" + idExercise +
+                ", sqlQuery='" + sqlQuery + '\'' +
+                '}';
     }
 }

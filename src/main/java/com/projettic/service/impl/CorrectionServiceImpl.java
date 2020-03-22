@@ -15,8 +15,8 @@ public class CorrectionServiceImpl implements CorrectionService {
     CorrectionDao correctionDao;
 
     @Override
-    public List<Correction> findAllCorrectionByExercise(Exercise exercise) {
-        return correctionDao.findAllCorrectionByExercise(exercise.getIdExercise());
+    public List<Correction> findAllCorrectionByExercise(int idExercise) {
+        return correctionDao.findAllCorrectionByExercise(idExercise);
     }
 
     @Override
@@ -25,8 +25,8 @@ public class CorrectionServiceImpl implements CorrectionService {
     }
 
     @Override
-    public void deleteCorrectionById(Correction correction) {
-        correctionDao.deleteCorrectionById(correction.getIdCorrection());
+    public void deleteCorrectionById(int idCorrection) {
+        correctionDao.deleteCorrectionById(idCorrection);
     }
 
     @Override

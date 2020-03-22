@@ -6,8 +6,8 @@ import com.projettic.entity.Exercise;
 import java.util.List;
 
 public interface CorrectionService {
-    List<Correction> findAllCorrectionByExercise(Exercise exercise);
+    List<Correction> findAllCorrectionByExercise(int idExercise);
     void addCorrection(Correction correction);
-    void deleteCorrectionById(Correction correction);
+    void deleteCorrectionById(int idCorrection);
     void updateCorrection(Correction correction);
 }

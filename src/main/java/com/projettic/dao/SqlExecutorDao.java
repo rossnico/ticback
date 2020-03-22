@@ -11,9 +11,6 @@ import java.util.List;
 
 public interface SqlExecutorDao {
 
-    @Select("select * from t_user")
-    public List<Account> findAllEmp() throws BadSqlGrammarException;
-
     @Select("${sqlQuery}")
     List<LinkedHashMap<String, Object>> getHisResult(SqlQuery sqlQuery) throws BadSqlGrammarException;
 }

@@ -40,8 +40,8 @@ public class AccountServiceImpl implements AccountService {
     public Account checkAccount(Account account) {
         Account accountDb = accountDao.isExist(account);
         if (accountDb!= null) {
-            System.out.println(accountDb.toString());
             if (account.isEquals(accountDb)) {
+                System.out.println("check account! " + accountDb.toString());
                 return accountDb;
             }
         } else {

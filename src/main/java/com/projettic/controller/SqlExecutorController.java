@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
-
 @Controller
 @RequestMapping(path = "/sqlExecutor")
 public class SqlExecutorController {
@@ -21,17 +20,29 @@ public class SqlExecutorController {
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/testSql", method = RequestMethod.POST)
     @ResponseBody()
-    public String testsql1(@RequestBody String param) {
+    public String sqlExcecutor(@RequestBody String param) {
         SqlQuery sqlQuery = JSON.parseObject(param, SqlQuery.class);
         String sqlString = sqlQuery.getSqlQuery();
-        sqlString = sqlString.replace(";","");
+        sqlString = sqlString.replace(";", "");
         String sqlStringTrim = sqlString.replaceAll("\\s{1,}", " ");
         sqlStringTrim = sqlStringTrim.toLowerCase();
         System.out.println(sqlStringTrim);
         sqlQuery.setSqlQuery(sqlStringTrim);
-        logger.info("input - " + sqlQuery.toString());
+        logger.info("input sql - " + sqlQuery.toString());
         String hisRes = empServiceImpl.getHisRes(sqlQuery);
         return hisRes;
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path = "/sqlCorrector", method = RequestMethod.POST)
+    @ResponseBody()
+    public String sqlCorrector(@RequestBody String param){
+        SqlQuery sqlQuery = JSON.parseObject(param, SqlQuery.class);
+        String sqlString = sqlQuery.getSqlQuery();
+        sqlString = sqlString.replace(";", "");
+        String sqlStringTrim = sqlString.replaceAll("\\s{1,}", " ");
+        sqlStringTrim = sqlStringTrim.toLowerCase();
+        return null;
     }
 
 

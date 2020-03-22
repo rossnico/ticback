@@ -4,5 +4,6 @@ import com.projettic.entity.SqlQuery;
 
 public interface SqlExecutorService {
     String getHisRes(SqlQuery sqlQuery);
-    String getCorrection();
+    String correctSqlSyntax(SqlQuery sqlQuery);
+    String correctSqlResult(SqlQuery sqlQuery);
 }
