@@ -50,6 +50,7 @@ public class ExerciseServiceImpl implements ExerciseService {
 
     @Override
     public void updateExercise(Exercise exercise) {
+    	System.out.println(exercise.getTextExercise()+exercise.getIdExercise());
         exerciseDao.updateExercise(exercise);
     }
 

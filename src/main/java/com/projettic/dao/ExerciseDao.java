@@ -28,7 +28,7 @@ public interface ExerciseDao {
     @Delete("delete from t_exercise where id_exercise = #{idExercise}")
     void deleteExerciseById(int idExercise);
 
-    @Update("update t_exercise set text_exercise = #{exerciseText} where id_exercise =#{idExercise}")
+    @Update("update t_exercise set text_exercise = #{textExercise} where id_exercise =#{idExercise}")
     @ResultMap("exerciseMapper")
     void updateExercise(Exercise exercise);
     
