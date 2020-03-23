@@ -69,6 +69,6 @@ public class Account {
 //            }
 //        }
 //        return false;
-        return (this.getUserPassword().equals(accountDb.getUserPassword()));
+        return (this.getUserPassword().equals(accountDb.getUserPassword())&&this.userClass == accountDb.getUserClass());
     }
 }
