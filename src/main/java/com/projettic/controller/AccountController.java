@@ -25,10 +25,22 @@ public class AccountController {
     private AccountService accountService;
 
     @CrossOrigin
-    @RequestMapping(path = "/testLogin")
+    @RequestMapping(path = "/testLogin", method = RequestMethod.GET)
     public String userLoginTestPage() {
         return "success";
     }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path = "/getUserInfo", method = RequestMethod.GET)
+    @ResponseBody()
+    public String getUserInfo(HttpServletRequest req){
+        Account reloginAccount = (Account) req.getSession().getAttribute("userSession");
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
+        jsonObject.put("Data", reloginAccount);
+        return jsonObject.toString();
+    }
+
 
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/getLogInfo", method = RequestMethod.POST)
@@ -45,6 +57,7 @@ public class AccountController {
             req.getSession().setAttribute("userSession", reloginAccount);
             //res.addCookie(new Cookie("userCookie", JSON.toJSONString(reloginAccount)));
             logger.info("Login - " + reloginAccount.getUserName());
+            //System.out.println(req.getSession().getAttribute("userSession").toString());
             return jsonObject.toString();
         } else {
             JSONObject jsonObject = new JSONObject();

@@ -2,9 +2,12 @@ package com.projettic.dao;
 
 import com.projettic.entity.Correction;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Mapper
+@Component("correctionDao")
 public interface CorrectionDao {
     @Select("select * from t_correction where id_exercise = #{idExercise}")
     @Results(id = "correctionMapper", value = {

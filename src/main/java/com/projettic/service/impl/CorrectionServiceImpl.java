@@ -2,10 +2,10 @@ package com.projettic.service.impl;
 
 import com.projettic.dao.CorrectionDao;
 import com.projettic.entity.Correction;
-import com.projettic.entity.Exercise;
 import com.projettic.service.CorrectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,17 +20,20 @@ public class CorrectionServiceImpl implements CorrectionService {
     }
 
     @Override
+    @Transactional
     public void addCorrection(Correction correction) {
-    	System.out.println(correction.getIdExercise()+correction.getTextCorrection());
+        System.out.println(correction.getIdExercise() + correction.getTextCorrection());
         correctionDao.addCorrection(correction);
     }
 
     @Override
+    @Transactional
     public void deleteCorrectionById(int idCorrection) {
         correctionDao.deleteCorrectionById(idCorrection);
     }
 
     @Override
+    @Transactional
     public void updateCorrection(Correction correction) {
         correctionDao.updateCorrection(correction);
     }

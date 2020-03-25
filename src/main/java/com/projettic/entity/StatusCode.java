@@ -2,8 +2,8 @@ package com.projettic.entity;
 
 /**
  * 功能：输出的json字段的值是StatusCode类决定
- *      就是说返回状态的值是成功200还是失败400还是错误404，这些值
- *      是StatusCode这个类定义的。
+ * 就是说返回状态的值是成功200还是失败400还是错误404，这些值
+ * 是StatusCode这个类定义的。
  */
 public enum StatusCode {
     /**
@@ -36,13 +36,19 @@ public enum StatusCode {
      */
     UNSUCCESS(410, "Error occured! Require unsuccessfully!"),
 
-    /** AuthCode错误 */
+    /**
+     * AuthCode错误
+     */
     INVALID_AUTHCODE(444, "无效的AuthCode"),
 
-    /** 太频繁的调用 */
+    /**
+     * 太频繁的调用
+     */
     TOO_FREQUENT(445, "太频繁的调用"),
 
-    /** 未知的错误 */
+    /**
+     * 未知的错误
+     */
     UNKNOWN_ERROR(499, "未知错误");
 
     private int code;

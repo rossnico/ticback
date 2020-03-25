@@ -14,21 +14,18 @@ public class UserSessionInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object o) throws Exception {
         Account account = (Account) req.getSession().getAttribute("userSession");
-        Cookie[] cookies = req.getCookies();
-        for(Cookie cookie:cookies){
-            System.out.println(cookie.getName());
-            System.out.println(cookie.getValue());
-        }
-
         if (account == null) {
             System.out.println("用户尚未登录，将其重定向至登录页面");
             res.sendRedirect("/user/errorLogin");
             return false;
         } else {
             System.out.println(account.toString());
+            res.sendRedirect("/user/getUserInfo");
             System.out.println("登录成功");
-            return true;
+            return false;
         }
+//        System.out.println("请求被拦截");
+//        return false;
     }
 
     @Override

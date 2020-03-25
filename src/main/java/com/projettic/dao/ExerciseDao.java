@@ -1,11 +1,13 @@
 package com.projettic.dao;
 
-import com.projettic.entity.Correction;
 import com.projettic.entity.Exercise;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Mapper
+@Component("exerciseDao")
 public interface ExerciseDao {
 
     @Select("select * from t_exercise")
@@ -31,7 +33,7 @@ public interface ExerciseDao {
     @Update("update t_exercise set text_exercise = #{textExercise} where id_exercise =#{idExercise}")
     @ResultMap("exerciseMapper")
     void updateExercise(Exercise exercise);
-    
+
     @Select("select * from t_exercise where id_category = #{idCate}")
     @ResultMap("exerciseMapper")
     List<Exercise> findByCate(int idCate);

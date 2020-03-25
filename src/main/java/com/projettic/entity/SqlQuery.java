@@ -19,11 +19,12 @@ public class SqlQuery {
         this.idExercise = idExercise;
     }
 
-    public void setSqlQuery(String sqlQuery) {
-        this.sqlQuery = sqlQuery;
-    }
     public String getSqlQuery() {
         return sqlQuery;
+    }
+
+    public void setSqlQuery(String sqlQuery) {
+        this.sqlQuery = sqlQuery;
     }
 
     @Override

@@ -1,13 +1,13 @@
 package com.projettic.dao;
 
 import com.projettic.entity.Account;
-import com.projettic.entity.SqlQuery;
 import org.apache.ibatis.annotations.*;
-import org.springframework.jdbc.BadSqlGrammarException;
+import org.springframework.stereotype.Component;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 
+@Mapper
+@Component("accountDao")
 public interface AccountDao {
 
     @Select("select * from t_user")

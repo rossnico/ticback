@@ -6,6 +6,7 @@ import com.projettic.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,19 +20,20 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public List<Account> findAllUser() {
-        try{
+        try {
             return accountDao.findAllUser();
-        } catch (BadSqlGrammarException e){
+        } catch (BadSqlGrammarException e) {
             System.out.println(e.getSQLException().getErrorCode());
             return null;
         }
     }
 
     @Override
+    @Transactional
     public void saveAccount(Account account) {
-        try{
+        try {
             accountDao.saveUserAccount(account);
-        } catch (BadSqlGrammarException e){
+        } catch (BadSqlGrammarException e) {
             System.out.println(e.getSQLException().getErrorCode());
         }
     }
@@ -39,7 +41,7 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Account checkAccount(Account account) {
         Account accountDb = accountDao.isExist(account);
-        if (accountDb!= null) {
+        if (accountDb != null) {
             if (account.isEquals(accountDb)) {
                 System.out.println("check account! " + accountDb.toString());
                 return accountDb;
@@ -52,10 +54,6 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public boolean isExist(Account account) {
-        if(accountDao.isExist(account)!=null){
-            return true;
-        } else {
-            return false;
-        }
+        return accountDao.isExist(account) != null;
     }
 }

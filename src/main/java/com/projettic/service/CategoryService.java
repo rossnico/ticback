@@ -1,13 +1,17 @@
 package com.projettic.service;
 
-import java.util.List;
-
 import com.projettic.entity.Category;
 
+import java.util.List;
+
 public interface CategoryService {
-	List<Category> findAll();
-	String findById(Category category);
-	void deleteCategoryById(int id);
-	public void addCategory(Category category);
-	void updateCategory(Category category);
+    List<Category> findAll();
+
+    String findById(Category category);
+
+    void deleteCategoryById(int id);
+
+    void addCategory(Category category);
+
+    void updateCategory(Category category);
 }

@@ -10,6 +10,7 @@ import com.projettic.service.SqlExecutorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -20,8 +21,7 @@ public class SqlExecutorServiceImpl implements SqlExecutorService {
     @Autowired
     private SqlExecutorDao sqlExecutorDao;
 
-
-
+    @Transactional
     @Override
     public String getSqlResult(SqlQuery sqlQuery) {
         try {

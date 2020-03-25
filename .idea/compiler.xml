@@ -11,6 +11,11 @@
       </profile>
     </annotationProcessing>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ticback" options="-parameters" />
+    </option>
+  </component>
   <component name="TypeScriptCompiler">
     <option name="nodeInterpreterTextField" value="C:/Program Files/nodejs/node" />
   </component>

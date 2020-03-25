@@ -2,13 +2,12 @@ package com.projettic.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.projettic.dao.ExerciseDao;
-import com.projettic.entity.Category;
-import com.projettic.entity.Correction;
 import com.projettic.entity.Exercise;
 import com.projettic.entity.StatusCode;
 import com.projettic.service.ExerciseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,15 +19,15 @@ public class ExerciseServiceImpl implements ExerciseService {
 
     @Override
     public List<Exercise> findAll() {
-    	List<Exercise> list = exerciseDao.findAllExercise();
-    	return list;
+        List<Exercise> list = exerciseDao.findAllExercise();
+        return list;
     }
 
     @Override
     public String findById(Exercise exercise) {
         Exercise exercise1 = exerciseDao.findExerciseById(exercise.getIdExercise());
         JSONObject jsonObject = new JSONObject();
-        if(exercise1==null){
+        if (exercise1 == null) {
             jsonObject.put("StatusCode", StatusCode.PARAMS_ERROR.getCode());
             jsonObject.put("StatusMessage", StatusCode.PARAMS_ERROR.getMessage());
         } else {
@@ -39,24 +38,27 @@ public class ExerciseServiceImpl implements ExerciseService {
     }
 
     @Override
+    @Transactional
     public void addExercise(Exercise exercise) {
         exerciseDao.addExercise(exercise);
     }
 
     @Override
+    @Transactional
     public void deleteExerciseById(int idExercise) {
         exerciseDao.deleteExerciseById(idExercise);
     }
 
     @Override
+    @Transactional
     public void updateExercise(Exercise exercise) {
-    	System.out.println(exercise.getTextExercise()+exercise.getIdExercise());
+        System.out.println(exercise.getTextExercise() + exercise.getIdExercise());
         exerciseDao.updateExercise(exercise);
     }
 
     @Override
     public List<Exercise> findByCate(int id) {
-    	return exerciseDao.findByCate(id);
+        return exerciseDao.findByCate(id);
     }
 
 
