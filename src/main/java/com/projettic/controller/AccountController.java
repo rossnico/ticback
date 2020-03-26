@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping(path = "/user")
@@ -45,7 +46,7 @@ public class AccountController {
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/getLogInfo", method = RequestMethod.POST)
     @ResponseBody()
-    public String userLogin(@RequestBody String param, HttpServletRequest req, HttpServletResponse res) {
+    public String userLogin(@RequestBody String param, HttpServletRequest req, HttpServletResponse res, HttpSession session) {
         Account account = JSON.parseObject(param, Account.class);
         account.setUserEmail(account.getUserName());
         System.out.println(account.toString());
@@ -54,7 +55,7 @@ public class AccountController {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
             jsonObject.put("Data", reloginAccount);
-            req.getSession().setAttribute("userSession", reloginAccount);
+            session.setAttribute("userSession", reloginAccount);
             //res.addCookie(new Cookie("userCookie", JSON.toJSONString(reloginAccount)));
             logger.info("Login - " + reloginAccount.getUserName());
             //System.out.println(req.getSession().getAttribute("userSession").toString());
@@ -68,10 +69,10 @@ public class AccountController {
         }
     }
 
-    @RequestMapping(path = "/login")
-    public String userLogin() {
-        return "login";
-    }
+//    @RequestMapping(path = "/login")
+//    public String userLogin() {
+//        return "login";
+//    }
 
     @RequestMapping(path = "/errorLogin")
     @ResponseBody
@@ -114,12 +115,12 @@ public class AccountController {
         return "register";
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(path = "/logOut")
-    public String userLogOut(HttpServletRequest req){
-        Account account = (Account) req.getSession().getAttribute("userSession");
-        logger.info("Log out - " + account.getUserName());
-        req.getSession().removeAttribute("userSession");
-        return "login";
-    }
+//    @CrossOrigin(origins = "http://localhost:4200")
+//    @RequestMapping(path = "/logOut")
+//    public String userLogOut(HttpServletRequest req){
+//        Account account = (Account) req.getSession().getAttribute("userSession");
+//        logger.info("Log out - " + account.getUserName());
+//        req.getSession().removeAttribute("userSession");
+//        return "login";
+//    }
 }

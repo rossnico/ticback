@@ -40,7 +40,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account checkAccount(Account account) {
-        Account accountDb = accountDao.isExist(account);
+        Account accountDb = accountDao.findUserByNameOrEmail(account.getUserName());
         if (accountDb != null) {
             if (account.isEquals(accountDb)) {
                 System.out.println("check account! " + accountDb.toString());
@@ -54,6 +54,6 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public boolean isExist(Account account) {
-        return accountDao.isExist(account) != null;
+        return accountDao.findUserByNameOrEmail(account.getUserName()) != null;
     }
 }

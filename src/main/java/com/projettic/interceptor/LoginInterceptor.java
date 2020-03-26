@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class UserSessionInterceptor implements HandlerInterceptor {
+public class LoginInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object o) throws Exception {
@@ -20,9 +20,9 @@ public class UserSessionInterceptor implements HandlerInterceptor {
             return false;
         } else {
             System.out.println(account.toString());
-            res.sendRedirect("/user/getUserInfo");
+            //res.sendRedirect("/user/getUserInfo");
             System.out.println("登录成功");
-            return false;
+            return true;
         }
 //        System.out.println("请求被拦截");
 //        return false;

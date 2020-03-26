@@ -5,7 +5,7 @@ public class Account {
     private String userName;
     private String userPassword;
     private String userEmail;
-    private int userClass;
+    private String userClass;
 
     public int getUserId() {
         return userId;
@@ -39,11 +39,11 @@ public class Account {
         this.userEmail = userEmail;
     }
 
-    public int getUserClass() {
+    public String getUserClass() {
         return userClass;
     }
 
-    public void setUserClass(int userClass) {
+    public void setUserClass(String userClass) {
         this.userClass = userClass;
     }
 
