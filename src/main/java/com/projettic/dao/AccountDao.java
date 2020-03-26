@@ -28,9 +28,9 @@ public interface AccountDao {
 //    @ResultMap("accountMapper")
 //    Account findUserByEmail(String email);
 
-    @Select("select * from t_user where user_email=#{str} or user_name = #{str}")
+    @Select("select * from t_user where user_email=#{userEmail} or user_name = #{userName}")
     @ResultMap("accountMapper")
-    Account findUserByNameOrEmail(String str);
+    Account findUserByNameOrEmail(Account account);
 
     @Insert("insert into t_user(user_name, user_password, user_email, user_class) " +
             "values(#{userName},#{userPassword},#{userEmail},#{userClass})")

@@ -115,12 +115,12 @@ public class AccountController {
         return "register";
     }
 
-//    @CrossOrigin(origins = "http://localhost:4200")
-//    @RequestMapping(path = "/logOut")
-//    public String userLogOut(HttpServletRequest req){
-//        Account account = (Account) req.getSession().getAttribute("userSession");
-//        logger.info("Log out - " + account.getUserName());
-//        req.getSession().removeAttribute("userSession");
-//        return "login";
-//    }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path = "/logOut")
+    public String userLogOut(HttpServletRequest req){
+        Account account = (Account) req.getSession().getAttribute("userSession");
+        logger.info("Log out - " + account.getUserName());
+        req.getSession().removeAttribute("userSession");
+        return "login";
+    }
 }
