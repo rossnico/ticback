@@ -11,6 +11,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,6 +45,8 @@ public class AccountController {
             jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
             jsonObject.put("Data", reloginAccount);
             req.getSession().setAttribute("userSession", reloginAccount);
+            System.out.println("this session id:" + req.getSession().getId());
+
             //res.addCookie(new Cookie("userCookie", JSON.toJSONString(reloginAccount)));
             logger.info("Login - " + reloginAccount.getUserName());
             return jsonObject.toString();
@@ -99,6 +103,20 @@ public class AccountController {
     @RequestMapping(path = "/register")
     public String userRegisterPage() {
         return "register";
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path = "/getSessionInfo",method = RequestMethod.GET)
+    @ResponseBody
+    public String userAuth(HttpServletRequest req) {
+        JSONObject jsonObject = new JSONObject();
+        if (req.getSession().getId().isEmpty()){
+            jsonObject.put("LoginStatus","false");
+            return jsonObject.toString();
+        }else
+            jsonObject.put("LoginStatus","true");
+            jsonObject.put("Data",req.getSession().getAttribute("userSession"));
+            return jsonObject.toString();
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
