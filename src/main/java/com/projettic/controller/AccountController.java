@@ -4,6 +4,7 @@ package com.projettic.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.projettic.entity.Account;
+import com.projettic.entity.Correction;
 import com.projettic.entity.StatusCode;
 import com.projettic.service.AccountService;
 import org.apache.logging.log4j.LogManager;
@@ -109,4 +110,13 @@ public class AccountController {
         req.getSession().removeAttribute("userSession");
         return "login";
     }
+    
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path = "/updateUserClass", method = RequestMethod.POST)
+    @ResponseBody
+    public String updateUserClass(@RequestBody int userId) {
+    	accountService.updateUserClass(userId);
+        return null;
+    }
+    
 }

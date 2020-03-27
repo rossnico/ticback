@@ -9,4 +9,5 @@ public interface AccountService {
     void saveAccount(Account account);
     Account checkAccount(Account account);
     boolean isExist(Account account);
+	void updateUserClass(int userId);
 }
