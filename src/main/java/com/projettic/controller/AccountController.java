@@ -111,10 +111,10 @@ public class AccountController {
     public String userAuth(HttpServletRequest req) {
         JSONObject jsonObject = new JSONObject();
         if (req.getSession().getId().isEmpty()){
-            jsonObject.put("LoginStatus","false");
+            jsonObject.put("StatusCode", StatusCode.NOT_LOGIN.getCode());
             return jsonObject.toString();
         }else
-            jsonObject.put("LoginStatus","true");
+            jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
             jsonObject.put("Data",req.getSession().getAttribute("userSession"));
             return jsonObject.toString();
     }
