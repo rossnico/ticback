@@ -26,6 +26,7 @@ public class CategoryController {
     @RequestMapping(path = "/getAllCategories", method = RequestMethod.GET)
     @ResponseBody
     public String getAll() {
+        System.out.println("Category被请求");
         List<Category> list = categoryService.findAll();
         return JSON.toJSONString(list);
     }
@@ -35,6 +36,7 @@ public class CategoryController {
     @ResponseBody
     public String getById(@RequestBody String param) {
         //TODO log, exception
+
         Category category = JSON.parseObject(param, Category.class);
         return categoryService.findById(category);
     }

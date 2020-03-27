@@ -31,8 +31,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        String[] listLoginPathExclude = {"/user/login","/user/getLogInfo","/user/errorLogin","/user/register","/user/registerInfo"};
-        String[] listAdminPath = {"/category/**","/correction/**","/exercise/**","/sqlExecutor/**"};
+        String[] listLoginPathExclude = {"/user/login","/user/logout","/user/errorLogin","/user/register","/user/registerInfo","/user/getSessionInfo"};
+        String[] listAdminPath = {"/category/**","/correction/**","/exercise/**","/sqlExecutor/**","/user/**"};
         httpSecurity.authorizeRequests().antMatchers(listAdminPath).authenticated()
                 .antMatchers(listLoginPathExclude).permitAll()
                 .and().formLogin().loginPage("/user/login")
@@ -55,7 +55,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 httpServletResponse.setContentType("application/json;charset=utf-8");
                 System.out.println("登录成功");
                 httpServletRequest.getRequestDispatcher("/user/login-success").forward(httpServletRequest,httpServletResponse);
-
             }
         });
         filter.setAuthenticationFailureHandler(new AuthenticationFailureHandler() {

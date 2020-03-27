@@ -14,6 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import sun.rmi.transport.ObjectTable;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -80,7 +81,10 @@ public class AccountController {
     @RequestMapping(path = "/login-success", method = RequestMethod.POST)
     @ResponseBody
     public String loginSuccess() {
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println(authentication.getDetails());
+        System.out.println(authentication.getAuthorities());
         Object principal = authentication.getPrincipal();
         UserDetails userDetails = (UserDetails) principal;
         JSONObject jsonObject = new JSONObject();
@@ -88,6 +92,16 @@ public class AccountController {
         jsonObject.put("Data", accountService.findUserByName(userDetails.getUsername()));
         return jsonObject.toString();
     }
+
+    @CrossOrigin(value = "http://localhost:4200")
+    @RequestMapping(path = "/logout-success", method = RequestMethod.POST)
+    @ResponseBody
+    public String logoutSuccess() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
+        return jsonObject.toString();
+    }
+
 
     @RequestMapping(path = "/errorLogin")
     @ResponseBody
@@ -147,9 +161,11 @@ public class AccountController {
         if (req.getSession().getId().isEmpty()){
             jsonObject.put("StatusCode", StatusCode.NOT_LOGIN.getCode());
             return jsonObject.toString();
-        }else
+        }else{
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
-        jsonObject.put("Data",req.getSession().getAttribute("userSession"));
-        return jsonObject.toString();
+            jsonObject.put("UserClass",authentication.getAuthorities());
+            return jsonObject.toString();
+        }
     }
 }

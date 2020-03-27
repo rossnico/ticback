@@ -13,6 +13,6 @@ public class CustumLogoutSuccessHandler implements LogoutSuccessHandler {
     @Override
     public void onLogoutSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
         System.out.println("退出登录！");
-        httpServletResponse.sendRedirect("/user/getLogInfo");
+        httpServletResponse.sendRedirect("/user/logout-success");
     }
 }
