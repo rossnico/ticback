@@ -30,6 +30,10 @@ public class CorrectionController {
     public String addExercise(@RequestBody String parem) {
         //TODO log,exception,return
         Correction correction = JSON.parseObject(parem, Correction.class);
+        String sqlString = correction.getTextCorrection();
+        sqlString = sqlString.replace(";", "");
+        String sqlStringTrim = sqlString.replaceAll("\\s{1,}", " ");
+        correction.setTextCorrection(sqlStringTrim);
         correctionService.addCorrection(correction);
         return null;
     }
@@ -40,7 +44,10 @@ public class CorrectionController {
     public String updateExercise(@RequestBody String parem) {
         //TODO log,exception,return
         Correction correction = JSON.parseObject(parem, Correction.class);
-        correctionService.updateCorrection(correction);
+        String sqlString = correction.getTextCorrection();
+        sqlString = sqlString.replace(";", "");
+        String sqlStringTrim = sqlString.replaceAll("\\s{1,}", " ");
+        correction.setTextCorrection(sqlStringTrim);
         return null;
     }
 

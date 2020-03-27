@@ -9,12 +9,13 @@ import com.projettic.service.AccountService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping(path = "/user")
@@ -34,7 +35,7 @@ public class AccountController {
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/getUserInfo", method = RequestMethod.GET)
     @ResponseBody()
-    public String getUserInfo(HttpServletRequest req){
+    public String getUserInfo(HttpServletRequest req) {
         Account reloginAccount = (Account) req.getSession().getAttribute("userSession");
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
@@ -43,36 +44,50 @@ public class AccountController {
     }
 
 
-    @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(path = "/getLogInfo", method = RequestMethod.POST)
-    @ResponseBody()
-    public String userLogin(@RequestBody String param, HttpServletRequest req, HttpServletResponse res, HttpSession session) {
-        Account account = JSON.parseObject(param, Account.class);
-        account.setUserEmail(account.getUserName());
-        System.out.println(account.toString());
-        Account reloginAccount = accountService.checkAccount(account);
-        if(reloginAccount !=null) {
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
-            jsonObject.put("Data", reloginAccount);
-            session.setAttribute("userSession", reloginAccount);
-            //res.addCookie(new Cookie("userCookie", JSON.toJSONString(reloginAccount)));
-            logger.info("Login - " + reloginAccount.getUserName());
-            //System.out.println(req.getSession().getAttribute("userSession").toString());
-            return jsonObject.toString();
-        } else {
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("StatusCode", StatusCode.UNAUTHORIZED.getCode());
-            jsonObject.put("StatusMessage", StatusCode.UNAUTHORIZED.getMessage());
-            logger.info("Login not success - " + account.getUserName());
-            return jsonObject.toString();
-        }
-    }
+
+//    @CrossOrigin(origins = "http://localhost:4200")
+//    @RequestMapping(path = "/getLogInfo", method = RequestMethod.POST)
+//    @ResponseBody()
+//    public String userLogin(@RequestBody String param, HttpServletRequest req, HttpServletResponse res, HttpSession session) {
+//        Account account = JSON.parseObject(param, Account.class);
+//        account.setUserEmail(account.getUserName());
+//        System.out.println(account.toString());
+//        Account reloginAccount = accountService.checkAccount(account);
+//        if(reloginAccount !=null) {
+//            JSONObject jsonObject = new JSONObject();
+//            jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
+//            jsonObject.put("Data", reloginAccount);
+//            session.setAttribute("userSession", reloginAccount);
+//            //res.addCookie(new Cookie("userCookie", JSON.toJSONString(reloginAccount)));
+//            logger.info("Login - " + reloginAccount.getUserName());
+//            //System.out.println(req.getSession().getAttribute("userSession").toString());
+//            return jsonObject.toString();
+//        } else {
+//            JSONObject jsonObject = new JSONObject();
+//            jsonObject.put("StatusCode", StatusCode.UNAUTHORIZED.getCode());
+//            jsonObject.put("StatusMessage", StatusCode.UNAUTHORIZED.getMessage());
+//            logger.info("Login not success - " + account.getUserName());
+//            return jsonObject.toString();
+//        }
+//    }
 
 //    @RequestMapping(path = "/login")
 //    public String userLogin() {
 //        return "login";
 //    }
+
+    @CrossOrigin(value = "http://localhost:4200")
+    @RequestMapping(path = "/login-success", method = RequestMethod.POST)
+    @ResponseBody
+    public String loginSuccess() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Object principal = authentication.getPrincipal();
+        UserDetails userDetails = (UserDetails) principal;
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
+        jsonObject.put("Data", accountService.findUserByName(userDetails.getUsername()));
+        return jsonObject.toString();
+    }
 
     @RequestMapping(path = "/errorLogin")
     @ResponseBody
@@ -115,12 +130,26 @@ public class AccountController {
         return "register";
     }
 
+//    @CrossOrigin(origins = "http://localhost:4200")
+//    @RequestMapping(path = "/logOut")
+//    public String userLogOut(HttpServletRequest req){
+//        Account account = (Account) req.getSession().getAttribute("userSession");
+//        logger.info("Log out - " + account.getUserName());
+//        req.getSession().removeAttribute("userSession");
+//        return "login";
+//    }
+
     @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(path = "/logOut")
-    public String userLogOut(HttpServletRequest req){
-        Account account = (Account) req.getSession().getAttribute("userSession");
-        logger.info("Log out - " + account.getUserName());
-        req.getSession().removeAttribute("userSession");
-        return "login";
+    @RequestMapping(path = "/getSessionInfo",method = RequestMethod.GET)
+    @ResponseBody
+    public String userAuth(HttpServletRequest req) {
+        JSONObject jsonObject = new JSONObject();
+        if (req.getSession().getId().isEmpty()){
+            jsonObject.put("StatusCode", StatusCode.NOT_LOGIN.getCode());
+            return jsonObject.toString();
+        }else
+            jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
+        jsonObject.put("Data",req.getSession().getAttribute("userSession"));
+        return jsonObject.toString();
     }
 }

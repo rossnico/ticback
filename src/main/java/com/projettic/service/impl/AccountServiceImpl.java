@@ -56,4 +56,9 @@ public class AccountServiceImpl implements AccountService {
     public boolean isExist(Account account) {
         return accountDao.findUserByNameOrEmail(account) != null;
     }
+
+    @Override
+    public Account findUserByName(String userName) {
+        return accountDao.findUserByUserName(userName);
+    }
 }

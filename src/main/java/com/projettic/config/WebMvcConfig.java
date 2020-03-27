@@ -1,8 +1,8 @@
 package com.projettic.config;
 
 
-import com.projettic.interceptor.AdministratorInterceptor;
-import com.projettic.interceptor.LoginInterceptor;
+//import com.projettic.interceptor.AdministratorInterceptor;
+//import com.projettic.interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -16,15 +16,15 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("redirect:/login");
     }
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        String[] listLoginPathExclude = {"/user/login","/user/getLogInfo","/user/errorLogin","/user/register","/user/registerInfo"};
-        String[] listAdminPath = {"/category/**","/correction/**","/exercise/**","/sqlExecutor/**"};
-
-        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**").excludePathPatterns(listLoginPathExclude);
-
-        registry.addInterceptor(new AdministratorInterceptor()).addPathPatterns(listAdminPath);
-
-
-    }
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        String[] listLoginPathExclude = {"/user/login","/user/getLogInfo","/user/errorLogin","/user/register","/user/registerInfo"};
+//        String[] listAdminPath = {"/category/**","/correction/**","/exercise/**","/sqlExecutor/**"};
+//
+//        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**").excludePathPatterns(listLoginPathExclude);
+//
+//        registry.addInterceptor(new AdministratorInterceptor()).addPathPatterns(listAdminPath);
+//
+//
+//    }
 }

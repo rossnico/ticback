@@ -12,4 +12,6 @@ public interface AccountService {
     Account checkAccount(Account account);
 
     boolean isExist(Account account);
+
+    Account findUserByName(String userName);
 }
