@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -103,6 +105,20 @@ public class AccountController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path = "/getSessionInfo",method = RequestMethod.GET)
+    @ResponseBody
+    public String userAuth(HttpServletRequest req) {
+        JSONObject jsonObject = new JSONObject();
+        if (req.getSession().getId().isEmpty()){
+        	jsonObject.put("LoginStatus","false");
+            return jsonObject.toString();
+        }else
+        	jsonObject.put("LoginStatus","true");
+            jsonObject.put("Data",req.getSession().getAttribute("userSession"));
+            return jsonObject.toString();
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/logOut")
     public String userLogOut(HttpServletRequest req){
         Account account = (Account) req.getSession().getAttribute("userSession");
@@ -112,11 +128,19 @@ public class AccountController {
     }
     
     @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(path = "/updateUserClass", method = RequestMethod.POST)
+    @RequestMapping(path = "/updateUserClass/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public String updateUserClass(@RequestBody int userId) {
-    	accountService.updateUserClass(userId);
+    public String updateUserClass(@PathVariable int id) {
+    	accountService.updateUserClass(id);
         return null;
+    }
+    
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path = "/getAllUsers", method = RequestMethod.GET)
+    @ResponseBody
+    public String getAllUsers() {
+    	List<Account> list = accountService.findAllUser();
+    	return JSON.toJSONString(list);
     }
     
 }
