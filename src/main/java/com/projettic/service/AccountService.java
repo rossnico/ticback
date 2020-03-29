@@ -14,4 +14,6 @@ public interface AccountService {
     boolean isExist(Account account);
 
     Account findUserByName(String userName);
+
+    void updateUserClass(int userId);
 }

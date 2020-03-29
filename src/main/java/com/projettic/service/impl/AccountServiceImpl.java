@@ -61,4 +61,20 @@ public class AccountServiceImpl implements AccountService {
     public Account findUserByName(String userName) {
         return accountDao.findUserByUserName(userName);
     }
+
+    @Override
+    public void updateUserClass(int userId) {
+        try{
+            Account account = accountDao.findUserById(userId);
+
+            if (account.getUserClass() == 1) {
+                accountDao.updateToUser(userId);
+            }
+            else if (account.getUserClass() == 2) {
+                accountDao.updateToAdministrator(userId);
+            }
+        } catch (BadSqlGrammarException e){
+            System.out.println(e.getSQLException().getErrorCode());
+        }
+    }
 }

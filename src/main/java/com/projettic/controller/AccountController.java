@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import sun.rmi.transport.ObjectTable;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping(path = "/user")
@@ -165,7 +166,24 @@ public class AccountController {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
             jsonObject.put("UserClass",authentication.getAuthorities());
+            System.out.println("getSessionInfo");
+            System.out.println(jsonObject.toString());
             return jsonObject.toString();
         }
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path = "/updateUserClass/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public void updateUserClass(@PathVariable int id) {
+        accountService.updateUserClass(id);
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path = "/getAllUsers", method = RequestMethod.GET)
+    @ResponseBody
+    public String getAllUsers() {
+        List<Account> list = accountService.findAllUser();
+        return JSON.toJSONString(list);
     }
 }

@@ -31,11 +31,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        String[] listLoginPathExclude = {"/user/login","/user/logout","/user/errorLogin","/user/register","/user/registerInfo","/user/getSessionInfo"};
-        String[] listAdminPath = {"/category/**","/correction/**","/exercise/**","/sqlExecutor/**","/user/**"};
-        httpSecurity.authorizeRequests().antMatchers(listAdminPath).authenticated()
+        String[] listLoginPathExclude = {"/user/errorLogin","/user/register","/user/registerInfo"};
+        String[] listAdminPath = {"/category/**","/correction/**","/exercise/**","/user/**"};
+        httpSecurity.authorizeRequests().antMatchers("/**").authenticated()
                 .antMatchers(listLoginPathExclude).permitAll()
-                .and().formLogin().loginPage("/user/login")
+                .and().formLogin().loginPage("/user/login").permitAll()
                 .and().csrf().disable()
                 .logout().logoutUrl("/user/logout").deleteCookies("JSESSIONID").permitAll();
         httpSecurity.addFilterAt(customAuthenticationFilter(),CustomAuthenticationFilter.class);

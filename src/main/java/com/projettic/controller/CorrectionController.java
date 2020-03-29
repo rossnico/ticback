@@ -52,7 +52,7 @@ public class CorrectionController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(path = "/updateCorrection/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(path = "/updateCorrection/{idCorrection}", method = RequestMethod.DELETE)
     @ResponseBody
     public String deleteExercise(@PathVariable int idCorrection) {
         //TODO log,exception,return

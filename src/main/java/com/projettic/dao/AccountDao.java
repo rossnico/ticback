@@ -33,4 +33,16 @@ public interface AccountDao {
             "values(#{userName},#{userPassword},#{userEmail},#{userClass})")
     @ResultMap("accountMapper")
     void saveUserAccount(Account user);
+
+    @Update("update t_user set user_class = 1 where user_id = #{userId};")
+    @ResultMap("accountMapper")
+    void updateToAdministrator(int userId);
+
+    @Update("update t_user set user_class = 2 where user_id = #{userId};")
+    @ResultMap("accountMapper")
+    void updateToUser(int userId);
+
+    @Select("select * from t_user where user_id = #{userId}")
+    @ResultMap("accountMapper")
+    Account findUserById(int userId);
 }
