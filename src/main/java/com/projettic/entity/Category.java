@@ -1,7 +1,5 @@
 package com.projettic.entity;
 
-import java.util.Comparator;
-
 public class Category{
 	
 	private int idCategory;

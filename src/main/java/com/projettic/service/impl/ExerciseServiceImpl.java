@@ -9,6 +9,7 @@ import com.projettic.entity.StatusCode;
 import com.projettic.service.ExerciseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -57,6 +58,11 @@ public class ExerciseServiceImpl implements ExerciseService {
     @Override
     public List<Exercise> findByCate(int id) {
     	return exerciseDao.findByCate(id);
+    }
+    
+    @Override
+    public List<Exercise> getExercisesToDoByGroup(int idCategory, int idUser) {
+    	return exerciseDao.findExercisesToDoByGroup(idCategory, idUser);
     }
 
 
