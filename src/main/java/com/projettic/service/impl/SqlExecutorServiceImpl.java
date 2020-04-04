@@ -43,6 +43,7 @@ public class SqlExecutorServiceImpl implements SqlExecutorService {
     @Override
     public String correctSql(SqlQuery sqlQuery) {
         List<Correction> correctionList = sqlExecutorDao.findAllCorrectionByExercise(sqlQuery.getIdExercise());
+        System.out.println(correctionList+"lol");
         for (Correction correction1 : correctionList) {
             if (sqlQuery.getSqlQuery().equals(correction1.getTextCorrection())) {
                 JSONObject jsonObject = new JSONObject();

@@ -89,4 +89,12 @@ public class ExerciseController {
         exerciseService.updateExercise(exercise);
         return null;
     }
+    
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path = "/getExercisesToDoByGroup/{idCategory}/{idUser}", method = RequestMethod.GET)
+    @ResponseBody
+    public String getExercisesToDoByGroup(@PathVariable int idCategory, @PathVariable int idUser) {
+        List<Exercise> list = exerciseService.getExercisesToDoByGroup(idCategory, idUser);
+        return JSON.toJSONString(list);
+    }
 }

@@ -1,13 +1,13 @@
 package com.projettic.dao;
 
 import com.projettic.entity.Account;
+import com.projettic.entity.SqlQuery;
 import org.apache.ibatis.annotations.*;
-import org.springframework.stereotype.Component;
+import org.springframework.jdbc.BadSqlGrammarException;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
-@Mapper
-@Component("accountDao")
 public interface AccountDao {
 
     @Select("select * from t_user")
@@ -27,7 +27,7 @@ public interface AccountDao {
 
     @Select("select * from t_user where user_email=#{userEmail} or user_name = #{userName}")
     @ResultMap("accountMapper")
-    Account findUserByNameOrEmail(Account account);
+    Account isExist(Account account);
 
     @Insert("insert into t_user(user_name, user_password, user_email, user_class) " +
             "values(#{userName},#{userPassword},#{userEmail},#{userClass})")

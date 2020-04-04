@@ -103,6 +103,10 @@ public class AccountController {
         return jsonObject.toString();
     }
 
+    @RequestMapping(path = "/login")
+    public String userLogin() {
+        return "login";
+    }
 
     @RequestMapping(path = "/errorLogin")
     @ResponseBody
@@ -145,45 +149,43 @@ public class AccountController {
         return "register";
     }
 
-//    @CrossOrigin(origins = "http://localhost:4200")
-//    @RequestMapping(path = "/logOut")
-//    public String userLogOut(HttpServletRequest req){
-//        Account account = (Account) req.getSession().getAttribute("userSession");
-//        logger.info("Log out - " + account.getUserName());
-//        req.getSession().removeAttribute("userSession");
-//        return "login";
-//    }
-
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/getSessionInfo",method = RequestMethod.GET)
     @ResponseBody
     public String userAuth(HttpServletRequest req) {
         JSONObject jsonObject = new JSONObject();
         if (req.getSession().getId().isEmpty()){
-            jsonObject.put("StatusCode", StatusCode.NOT_LOGIN.getCode());
+        	jsonObject.put("LoginStatus","false");
             return jsonObject.toString();
-        }else{
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
-            jsonObject.put("UserClass",authentication.getAuthorities());
-            System.out.println("getSessionInfo");
-            System.out.println(jsonObject.toString());
+        }else
+        	jsonObject.put("LoginStatus","true");
+            jsonObject.put("Data",req.getSession().getAttribute("userSession"));
             return jsonObject.toString();
-        }
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path = "/logOut")
+    public String userLogOut(HttpServletRequest req){
+        Account account = (Account) req.getSession().getAttribute("userSession");
+        logger.info("Log out - " + account.getUserName());
+        req.getSession().removeAttribute("userSession");
+        return "login";
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/updateUserClass/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public void updateUserClass(@PathVariable int id) {
-        accountService.updateUserClass(id);
+    public String updateUserClass(@PathVariable int id) {
+    	accountService.updateUserClass(id);
+        return null;
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/getAllUsers", method = RequestMethod.GET)
     @ResponseBody
     public String getAllUsers() {
-        List<Account> list = accountService.findAllUser();
-        return JSON.toJSONString(list);
+    	List<Account> list = accountService.findAllUser();
+    	return JSON.toJSONString(list);
     }
+
 }

@@ -38,5 +38,13 @@ public interface ExerciseDao {
     @ResultMap("exerciseMapper")
     List<Exercise> findByCate(int idCate);
 
+    @Select("select * from t_exercise \r\n" + 
+    		"where id_category = #{arg0} \r\n" + 
+    		"AND id_exercise NOT IN \r\n" + 
+    		"(select adv_exercise_id \r\n" + 
+    		"from t_advancement \r\n" + 
+    		"where adv_user_id = #{arg1});")
+    @ResultMap("exerciseMapper")
+    List<Exercise> findExercisesToDoByGroup(int idCategory, int idUser); 
 
 }
