@@ -72,11 +72,11 @@ public class ExerciseController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(path = "/getExercisesByGroup/{idCategory}", method = RequestMethod.GET)
+    @RequestMapping(path = "/getExercisesByGroup", method = RequestMethod.POST)
     @ResponseBody
-    public String getExercisesByGroup(@PathVariable int idCategory) {
-//        Category category = JSON.parseObject(param, Category.class);
-        List<Exercise> list = exerciseService.findByCate(idCategory);
+    public String getExercisesByGroup(@RequestBody String param) {
+        Category category = JSON.parseObject(param, Category.class);
+        List<Exercise> list = exerciseService.findByCate(category.getIdCategory());
         return JSON.toJSONString(list);
     }
 

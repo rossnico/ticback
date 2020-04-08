@@ -103,10 +103,10 @@ public class AccountController {
         return jsonObject.toString();
     }
 
-    @RequestMapping(path = "/login")
-    public String userLogin() {
-        return "login";
-    }
+//    @RequestMapping(path = "/login")
+//    public String userLogin() {
+//        return "login";
+//    }
 
     @RequestMapping(path = "/errorLogin")
     @ResponseBody
