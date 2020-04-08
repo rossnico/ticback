@@ -19,8 +19,10 @@ public class SpringDataUserDetailService implements UserDetailsService {
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         Account account = accountDao.findUserByUserName(s);
         if(account == null){
+            System.out.println("userdetail为空");
             return null;
         }
+        System.out.println(account.toString());
         UserDetails userDetails = User.withUsername(account.getUserName()).password(account.getUserPassword()).authorities("1").build();
         return userDetails;
     }

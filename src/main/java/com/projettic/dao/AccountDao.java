@@ -23,7 +23,7 @@ public interface AccountDao {
     })
     List<Account> findAllUser();
 
-    @Select("select * from t_user where user_name = #{userName} or user_name = #{userName}")
+    @Select("select * from t_user where user_name = #{userName} or user_email = #{userName}")
     @ResultMap("accountMapper")
     Account findUserByUserName(String userName);
 
