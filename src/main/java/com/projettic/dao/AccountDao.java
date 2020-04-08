@@ -4,10 +4,13 @@ import com.projettic.entity.Account;
 import com.projettic.entity.SqlQuery;
 import org.apache.ibatis.annotations.*;
 import org.springframework.jdbc.BadSqlGrammarException;
+import org.springframework.stereotype.Component;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 
+@Mapper
+@Component("AccountDao")
 public interface AccountDao {
 
     @Select("select * from t_user")
@@ -24,6 +27,9 @@ public interface AccountDao {
     @ResultMap("accountMapper")
     Account findUserByUserName(String userName);
 
+    @Select("select * from t_user where user_email=#{userEmail} or user_name = #{userName}")
+    @ResultMap("accountMapper")
+    Account findUserByNameOrEmail(Account account);
 
     @Select("select * from t_user where user_email=#{userEmail} or user_name = #{userName}")
     @ResultMap("accountMapper")

@@ -19,6 +19,5 @@ public interface ExerciseService {
 	List<Exercise> findByCate(int id);
 	List<Exercise> getExercisesToDoByGroup(int idCategory, int idUser);
 
-    List<Exercise> findByCate(int id);
 
 }
