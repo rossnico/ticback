@@ -31,15 +31,18 @@ public class CorrectionController {
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/addCorrection", method = RequestMethod.POST)
     @ResponseBody
-    public String addCorrection(@RequestBody String parem) {
-        //TODO log,exception,return
-        Correction correction = JSON.parseObject(parem, Correction.class);
-        String sqlString = correction.getTextCorrection();
-        sqlString = sqlString.replace(";", "");
-        String sqlStringTrim = sqlString.replaceAll("\\s{1,}", " ");
-        correction.setTextCorrection(sqlStringTrim);
-        correctionService.addCorrection(correction);
-        return null;
+    public void addCorrection(@RequestBody String parem) {
+        try {
+            Correction correction = JSON.parseObject(parem, Correction.class);
+            String sqlString = correction.getTextCorrection();
+            sqlString = sqlString.replace(";", "");
+            String sqlStringTrim = sqlString.replaceAll("\\s{1,}", " ");
+            correction.setTextCorrection(sqlStringTrim);
+            correctionService.addCorrection(correction);
+        } catch (Exception e) {
+            log.error(e.toString());
+        }
+
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
@@ -66,6 +69,5 @@ public class CorrectionController {
         } catch (Exception e) {
             log.error(e.toString());
         }
-
     }
 }

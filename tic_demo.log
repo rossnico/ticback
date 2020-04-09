@@ -383,3 +383,375 @@ Unconditional classes:
 2020/04/09-18:26 [restartedMain] INFO  com.projettic.projetticApplication- No active profile set, falling back to default profiles: default
 2020/04/09-18:26 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
 2020/04/09-18:26 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020/04/09-18:40 [Thread-32] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/04/09-18:40 [restartedMain] INFO  com.projettic.projetticApplication- Starting projetticApplication on DESKTOP-F8KV3B1 with PID 27504 (C:\Users\adaml\IdeaProjects\ticback\target\classes started by adaml in C:\Users\adaml\IdeaProjects\ticback)
+2020/04/09-18:40 [restartedMain] INFO  com.projettic.projetticApplication- No active profile set, falling back to default profiles: default
+2020/04/09-18:40 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner- No MyBatis mapper was found in '[com.projettic.dao]' package. Please check your configuration.
+2020/04/09-18:40 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 8080 (http)
+2020/04/09-18:40 [restartedMain] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/04/09-18:40 [restartedMain] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020/04/09-18:40 [restartedMain] INFO  org.apache.jasper.servlet.TldScanner- At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020/04/09-18:40 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat-2].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/04/09-18:40 [restartedMain] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 582 ms
+2020/04/09-18:40 [restartedMain] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/04/09-18:40 [restartedMain] INFO  org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration- 
+
+Using generated security password: 4b22139c-5489-44bf-a1f5-46f5f6a0c3a5
+
+2020/04/09-18:40 [restartedMain] INFO  org.springframework.security.web.DefaultSecurityFilterChain- Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@40fcc1ef, org.springframework.security.web.context.SecurityContextPersistenceFilter@793b5d77, org.springframework.security.web.header.HeaderWriterFilter@605a749f, org.springframework.security.web.csrf.CsrfFilter@6c899b98, org.springframework.security.web.authentication.logout.LogoutFilter@4693cee1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@743b2299, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@7fa37c18, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@43b589a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3d11f1f0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@67cfb2cf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5482cc25, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@29398d6e, org.springframework.security.web.session.SessionManagementFilter@59ce488d, org.springframework.security.web.access.ExceptionTranslationFilter@6bfea295, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@669452f8]
+2020/04/09-18:40 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer- LiveReload server is running on port 35729
+2020/04/09-18:40 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 8080 (http) with context path ''
+2020/04/09-18:40 [restartedMain] INFO  com.projettic.projetticApplication- Started projetticApplication in 0.848 seconds (JVM running for 1682.236)
+2020/04/09-18:40 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener- Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter' (OnClassCondition)
+      - found 'session' scope (OnWebApplicationCondition)
+      - @ConditionalOnMissingBean (types: org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   UserDetailsServiceAutoConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+      - @ConditionalOnBean (types: org.springframework.security.config.annotation.ObjectPostProcessor; SearchStrategy: all) found bean 'objectPostProcessor'; @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.oauth2.jwt.JwtDecoder,org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   UserDetailsServiceAutoConfiguration#inMemoryUserDetailsManager matched:
+      - @ConditionalOnMissingBean (types: org.springframework.security.oauth2.client.registration.ClientRegistrationRepository; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   WebSecurityEnablerConfiguration matched:
+      - found 'session' scope (OnWebApplicationCondition)
+      - @ConditionalOnBean (types: org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter; SearchStrategy: all) found bean 'org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$DefaultConfigurerAdapter'; @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2020/04/09-18:40 [Thread-37] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/04/09-18:40 [restartedMain] INFO  com.projettic.projetticApplication- Starting projetticApplication on DESKTOP-F8KV3B1 with PID 27504 (C:\Users\adaml\IdeaProjects\ticback\target\classes started by adaml in C:\Users\adaml\IdeaProjects\ticback)
+2020/04/09-18:40 [restartedMain] INFO  com.projettic.projetticApplication- No active profile set, falling back to default profiles: default
+2020/04/09-18:40 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 8080 (http)
+2020/04/09-18:40 [restartedMain] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/04/09-18:40 [restartedMain] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020/04/09-18:40 [restartedMain] INFO  org.apache.jasper.servlet.TldScanner- At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020/04/09-18:40 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat-2].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/04/09-18:40 [restartedMain] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 699 ms
+2020/04/09-18:40 [restartedMain] INFO  org.springframework.security.web.DefaultSecurityFilterChain- Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5864713f, org.springframework.security.web.context.SecurityContextPersistenceFilter@235a6803, org.springframework.security.web.header.HeaderWriterFilter@7c1211fd, org.springframework.security.web.authentication.logout.LogoutFilter@342b835b, com.projettic.security.CustomAuthenticationFilter@1ac386de, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6bbf1654, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a56832f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@26a7ee61, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3fd6b55c, org.springframework.security.web.session.SessionManagementFilter@20785f9a, org.springframework.security.web.access.ExceptionTranslationFilter@5677f25d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@27369222]
+2020/04/09-18:40 [restartedMain] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/04/09-18:40 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer- LiveReload server is running on port 35729
+2020/04/09-18:40 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 8080 (http) with context path ''
+2020/04/09-18:40 [restartedMain] INFO  com.projettic.projetticApplication- Started projetticApplication in 1.138 seconds (JVM running for 1687.45)
+2020/04/09-18:40 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener- Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+    None
+
+
+Negative matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (types: org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter; SearchStrategy: all) found beans of type 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter' webSecurityConfig (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter' (OnClassCondition)
+         - found 'session' scope (OnWebApplicationCondition)
+
+   UserDetailsServiceAutoConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.oauth2.jwt.JwtDecoder,org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector; SearchStrategy: all) found beans of type 'org.springframework.security.core.userdetails.UserDetailsService' springDataUserDetailService (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+
+   WebSecurityEnablerConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) found beans named springSecurityFilterChain (OnBeanCondition)
+      Matched:
+         - found 'session' scope (OnWebApplicationCondition)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2020/04/09-19:30 [Thread-45] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/04/09-21:00 [restartedMain] INFO  com.projettic.projetticApplication- Starting projetticApplication on DESKTOP-F8KV3B1 with PID 27504 (C:\Users\adaml\IdeaProjects\ticback\target\classes started by adaml in C:\Users\adaml\IdeaProjects\ticback)
+2020/04/09-21:00 [restartedMain] INFO  com.projettic.projetticApplication- No active profile set, falling back to default profiles: default
+2020/04/09-21:00 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner- No MyBatis mapper was found in '[com.projettic.dao]' package. Please check your configuration.
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 8080 (http)
+2020/04/09-21:00 [restartedMain] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/04/09-21:00 [restartedMain] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020/04/09-21:00 [restartedMain] INFO  org.apache.jasper.servlet.TldScanner- At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020/04/09-21:00 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat-3].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 611 ms
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration- 
+
+Using generated security password: 03254daf-a365-43a3-ba9b-ae27b254c919
+
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.security.web.DefaultSecurityFilterChain- Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6006b926, org.springframework.security.web.context.SecurityContextPersistenceFilter@1e2b0789, org.springframework.security.web.header.HeaderWriterFilter@3e5f839d, org.springframework.security.web.csrf.CsrfFilter@5cc91b42, org.springframework.security.web.authentication.logout.LogoutFilter@297765a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@46066015, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6cdec5bc, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1df6f4f4, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4005d8b0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@44ed8bb9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@66cabd2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@68853997, org.springframework.security.web.session.SessionManagementFilter@a2c0e85, org.springframework.security.web.access.ExceptionTranslationFilter@63873376, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@146d3c1e]
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer- LiveReload server is running on port 35729
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 8080 (http) with context path ''
+2020/04/09-21:00 [restartedMain] INFO  com.projettic.projetticApplication- Started projetticApplication in 0.876 seconds (JVM running for 10055.419)
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener- Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter' (OnClassCondition)
+      - found 'session' scope (OnWebApplicationCondition)
+      - @ConditionalOnMissingBean (types: org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   UserDetailsServiceAutoConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+      - @ConditionalOnBean (types: org.springframework.security.config.annotation.ObjectPostProcessor; SearchStrategy: all) found bean 'objectPostProcessor'; @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.oauth2.jwt.JwtDecoder,org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   UserDetailsServiceAutoConfiguration#inMemoryUserDetailsManager matched:
+      - @ConditionalOnMissingBean (types: org.springframework.security.oauth2.client.registration.ClientRegistrationRepository; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   WebSecurityEnablerConfiguration matched:
+      - found 'session' scope (OnWebApplicationCondition)
+      - @ConditionalOnBean (types: org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter; SearchStrategy: all) found bean 'org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$DefaultConfigurerAdapter'; @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2020/04/09-21:00 [Thread-50] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/04/09-21:00 [restartedMain] INFO  com.projettic.projetticApplication- Starting projetticApplication on DESKTOP-F8KV3B1 with PID 27504 (C:\Users\adaml\IdeaProjects\ticback\target\classes started by adaml in C:\Users\adaml\IdeaProjects\ticback)
+2020/04/09-21:00 [restartedMain] INFO  com.projettic.projetticApplication- No active profile set, falling back to default profiles: default
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 8080 (http)
+2020/04/09-21:00 [restartedMain] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/04/09-21:00 [restartedMain] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020/04/09-21:00 [restartedMain] INFO  org.apache.jasper.servlet.TldScanner- At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020/04/09-21:00 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat-3].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 1303 ms
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.security.web.DefaultSecurityFilterChain- Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6ca383d7, org.springframework.security.web.context.SecurityContextPersistenceFilter@321fa853, org.springframework.security.web.header.HeaderWriterFilter@41ec2b26, org.springframework.security.web.authentication.logout.LogoutFilter@236f547b, com.projettic.security.CustomAuthenticationFilter@489a1f56, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3e18392f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@650d9a04, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@45182898, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5ffe8d14, org.springframework.security.web.session.SessionManagementFilter@560ff864, org.springframework.security.web.access.ExceptionTranslationFilter@10ad9e5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@48854b63]
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer- LiveReload server is running on port 35729
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 8080 (http) with context path ''
+2020/04/09-21:00 [restartedMain] INFO  com.projettic.projetticApplication- Started projetticApplication in 2.122 seconds (JVM running for 10062.372)
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener- Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+    None
+
+
+Negative matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (types: org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter; SearchStrategy: all) found beans of type 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter' webSecurityConfig (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter' (OnClassCondition)
+         - found 'session' scope (OnWebApplicationCondition)
+
+   UserDetailsServiceAutoConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.oauth2.jwt.JwtDecoder,org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector; SearchStrategy: all) found beans of type 'org.springframework.security.core.userdetails.UserDetailsService' springDataUserDetailService (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+
+   WebSecurityEnablerConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) found beans named springSecurityFilterChain (OnBeanCondition)
+      Matched:
+         - found 'session' scope (OnWebApplicationCondition)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2020/04/09-21:00 [restartedMain] INFO  com.projettic.projetticApplication- Starting projetticApplication on DESKTOP-F8KV3B1 with PID 16700 (C:\Users\adaml\IdeaProjects\ticback\target\classes started by adaml in C:\Users\adaml\IdeaProjects\ticback)
+2020/04/09-21:00 [restartedMain] INFO  com.projettic.projetticApplication- No active profile set, falling back to default profiles: default
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 8080 (http)
+2020/04/09-21:00 [restartedMain] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/04/09-21:00 [restartedMain] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020/04/09-21:00 [restartedMain] INFO  org.apache.jasper.servlet.TldScanner- At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020/04/09-21:00 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 2184 ms
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.security.web.DefaultSecurityFilterChain- Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3a3f8796, org.springframework.security.web.context.SecurityContextPersistenceFilter@6756ffb7, org.springframework.security.web.header.HeaderWriterFilter@5ff9db85, org.springframework.security.web.authentication.logout.LogoutFilter@6b4c830f, com.projettic.security.CustomAuthenticationFilter@7a6a93eb, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@19c4536e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4623f81b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6846bc54, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7f82b5f6, org.springframework.security.web.session.SessionManagementFilter@487f76b3, org.springframework.security.web.access.ExceptionTranslationFilter@6f90e42c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3563b57b]
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/04/09-21:00 [restartedMain] WARN  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer- Unable to start LiveReload server
+2020/04/09-21:00 [restartedMain] INFO  org.apache.catalina.core.StandardService- Stopping service [Tomcat]
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener- 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020/04/09-21:00 [restartedMain] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter- 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2020/04/09-21:00 [restartedMain] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/04/09-21:00 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat-3].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/04/09-21:00 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/04/09-21:00 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 2 ms
+2020/04/09-21:00 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-2 - Starting...
+2020/04/09-21:00 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-2 - Start completed.
+2020/04/09-21:01 [http-nio-8080-exec-2] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:01 [http-nio-8080-exec-5] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:01 [http-nio-8080-exec-8] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:01 [http-nio-8080-exec-1] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:02 [http-nio-8080-exec-4] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:02 [restartedMain] INFO  com.projettic.projetticApplication- Starting projetticApplication on DESKTOP-F8KV3B1 with PID 17772 (C:\Users\adaml\IdeaProjects\ticback\target\classes started by adaml in C:\Users\adaml\IdeaProjects\ticback)
+2020/04/09-21:02 [restartedMain] INFO  com.projettic.projetticApplication- No active profile set, falling back to default profiles: default
+2020/04/09-21:02 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020/04/09-21:02 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020/04/09-21:02 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 8080 (http)
+2020/04/09-21:02 [restartedMain] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/04/09-21:02 [restartedMain] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020/04/09-21:02 [restartedMain] INFO  org.apache.jasper.servlet.TldScanner- At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020/04/09-21:02 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/04/09-21:02 [restartedMain] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 2215 ms
+2020/04/09-21:02 [restartedMain] INFO  org.springframework.security.web.DefaultSecurityFilterChain- Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@270a53f0, org.springframework.security.web.context.SecurityContextPersistenceFilter@40f6dc56, org.springframework.security.web.header.HeaderWriterFilter@7d4ddd7b, org.springframework.security.web.authentication.logout.LogoutFilter@154deced, com.projettic.security.CustomAuthenticationFilter@46ce8253, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@270f8030, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@350e467d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@777f6722, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@301f1305, org.springframework.security.web.session.SessionManagementFilter@2422f354, org.springframework.security.web.access.ExceptionTranslationFilter@5502d6f6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5733fdc0]
+2020/04/09-21:02 [restartedMain] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/04/09-21:02 [restartedMain] WARN  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer- Unable to start LiveReload server
+2020/04/09-21:02 [restartedMain] INFO  org.apache.catalina.core.StandardService- Stopping service [Tomcat]
+2020/04/09-21:02 [restartedMain] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener- 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020/04/09-21:02 [restartedMain] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter- 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2020/04/09-21:02 [restartedMain] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Shutting down ExecutorService 'applicationTaskExecutor'
+2020/04/09-21:06 [restartedMain] INFO  com.projettic.projetticApplication- Starting projetticApplication on DESKTOP-F8KV3B1 with PID 26404 (C:\Users\adaml\IdeaProjects\ticback\target\classes started by adaml in C:\Users\adaml\IdeaProjects\ticback)
+2020/04/09-21:06 [restartedMain] INFO  com.projettic.projetticApplication- No active profile set, falling back to default profiles: default
+2020/04/09-21:06 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020/04/09-21:06 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020/04/09-21:06 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 8080 (http)
+2020/04/09-21:06 [restartedMain] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2020/04/09-21:06 [restartedMain] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020/04/09-21:06 [restartedMain] INFO  org.apache.jasper.servlet.TldScanner- At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020/04/09-21:06 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2020/04/09-21:06 [restartedMain] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 1758 ms
+2020/04/09-21:06 [restartedMain] INFO  org.springframework.security.web.DefaultSecurityFilterChain- Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1b7344b3, org.springframework.security.web.context.SecurityContextPersistenceFilter@6068d2fc, org.springframework.security.web.header.HeaderWriterFilter@19751c0c, org.springframework.security.web.authentication.logout.LogoutFilter@596ba55f, com.projettic.security.CustomAuthenticationFilter@1848d424, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7cd2a413, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@289a192f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@45996962, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6be6dd8b, org.springframework.security.web.session.SessionManagementFilter@37bea341, org.springframework.security.web.access.ExceptionTranslationFilter@413c4c4d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6a86a1b4]
+2020/04/09-21:06 [restartedMain] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- Initializing ExecutorService 'applicationTaskExecutor'
+2020/04/09-21:06 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer- LiveReload server is running on port 35729
+2020/04/09-21:06 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 8080 (http) with context path ''
+2020/04/09-21:06 [restartedMain] INFO  com.projettic.projetticApplication- Started projetticApplication in 3.386 seconds (JVM running for 4.746)
+2020/04/09-21:06 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020/04/09-21:06 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet- Initializing Servlet 'dispatcherServlet'
+2020/04/09-21:06 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet- Completed initialization in 8 ms
+2020/04/09-21:06 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Starting...
+2020/04/09-21:06 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource- HikariPool-1 - Start completed.
+2020/04/09-21:07 [http-nio-8080-exec-9] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:07 [http-nio-8080-exec-2] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:07 [http-nio-8080-exec-5] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:07 [http-nio-8080-exec-7] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:07 [http-nio-8080-exec-9] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:07 [http-nio-8080-exec-6] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:07 [http-nio-8080-exec-5] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:07 [http-nio-8080-exec-10] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:07 [http-nio-8080-exec-2] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:07 [http-nio-8080-exec-3] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:07 [http-nio-8080-exec-5] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:07 [http-nio-8080-exec-10] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:07 [http-nio-8080-exec-4] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:07 [http-nio-8080-exec-8] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:07 [http-nio-8080-exec-1] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:07 [http-nio-8080-exec-9] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:07 [http-nio-8080-exec-3] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)
+2020/04/09-21:07 [http-nio-8080-exec-8] INFO  com.projettic.controller.SqlExecutorController- input sql - SqlQuery(idExercise=23, sqlQuery=select * from emp)

@@ -26,15 +26,18 @@ public class AdvancementServiceImpl implements AdvancementService {
     @Override
     public void saveAdvancement(Advancement advancement) {
         try {
-            advancementDao.saveAdvancement(advancement);
+            List<Advancement> list = advancementDao.findAdvancementByUserId(advancement.getAdvUserId());
+            if (list.contains(advancement)) {
+                System.out.println("Advancement already exists");
+            } else {
+                advancementDao.saveAdvancement(advancement);
+            }
         } catch (BadSqlGrammarException e) {
             System.out.println(e.getSQLException().getErrorCode());
         }
     }
 
     public List<CategoryAdvancement> getCategoryAdvancement(int idUser) {
-        List<CategoryAdvancement> list = this.advancementDao.findCategoryAdvancement(idUser);
-        System.out.println(list);
-        return list;
+        return this.advancementDao.findCategoryAdvancement(idUser);
     }
 }

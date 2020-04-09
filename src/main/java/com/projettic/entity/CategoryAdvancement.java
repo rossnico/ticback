@@ -6,5 +6,4 @@ import lombok.Data;
 public class CategoryAdvancement extends Category {
 	private int nbTotal;
 	private int nbDone;
-
 }

@@ -38,7 +38,6 @@ public class AdvancementController {
         } catch (Exception e) {
             log.error(e.toString());
         }
-
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
