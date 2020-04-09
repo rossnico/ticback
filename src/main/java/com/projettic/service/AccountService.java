@@ -9,8 +9,6 @@ public interface AccountService {
 
     void saveAccount(Account account);
 
-    Account checkAccount(Account account);
-
     boolean isExist(Account account);
 
     Account findUserByName(String userName);

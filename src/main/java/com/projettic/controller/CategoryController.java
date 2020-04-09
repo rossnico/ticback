@@ -5,19 +5,17 @@ import com.alibaba.fastjson.JSONObject;
 import com.projettic.entity.Category;
 import com.projettic.entity.StatusCode;
 import com.projettic.service.impl.CategoryServiceImpl;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @Controller
 @RequestMapping(path = "/category")
 public class CategoryController {
-    static Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
-    private ExerciseController exerciseController;
 
     @Autowired
     private CategoryServiceImpl categoryService;
@@ -26,7 +24,6 @@ public class CategoryController {
     @RequestMapping(path = "/getAllCategories", method = RequestMethod.GET)
     @ResponseBody
     public String getAll() {
-        System.out.println("Category被请求");
         List<Category> list = categoryService.findAll();
         return JSON.toJSONString(list);
     }
@@ -35,8 +32,6 @@ public class CategoryController {
     @RequestMapping(path = "/getCategoryById", method = RequestMethod.POST)
     @ResponseBody
     public String getById(@RequestBody String param) {
-        //TODO log, exception
-
         Category category = JSON.parseObject(param, Category.class);
         return categoryService.findById(category);
     }
@@ -44,11 +39,13 @@ public class CategoryController {
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/deleteCategory", method = RequestMethod.POST)
     @ResponseBody
-    public String deleteCategory(@RequestBody String param) {
-        //TODO log, exception
-        Category category = JSON.parseObject(param, Category.class);
-        categoryService.deleteCategoryById(category.getIdCategory());
-        return null;
+    public void deleteCategory(@RequestBody String param) {
+        try {
+            Category category = JSON.parseObject(param, Category.class);
+            categoryService.deleteCategoryById(category.getIdCategory());
+        } catch (Exception e) {
+            log.error(e.toString());
+        }
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
@@ -59,13 +56,13 @@ public class CategoryController {
             Category category = JSON.parseObject(param, Category.class);
             categoryService.addCategory(category);
             JSONObject jsonObject = new JSONObject();
-            logger.info("New category added: " + category.toString());
+            log.info("New category added: " + category.toString());
             jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
             jsonObject.put("StatusMessage", StatusCode.SUCCESS.getMessage());
             return jsonObject.toString();
         } catch (Exception e) {
             JSONObject jsonObject = new JSONObject();
-            logger.warn("error when add new category: " + param + "  " + e.getMessage());
+            log.warn("error when add new category: " + param + "  " + e.getMessage());
             jsonObject.put("StatusCode", StatusCode.UNSUCCESS.getCode());
             jsonObject.put("StatusMessage", StatusCode.UNSUCCESS.getMessage());
             return jsonObject.toString();
@@ -75,11 +72,14 @@ public class CategoryController {
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/updateCategory", method = RequestMethod.POST)
     @ResponseBody
-    public String updateCategory(@RequestBody String param) {
-        //TODO log, exception
-        Category category = JSON.parseObject(param, Category.class);
-        categoryService.updateCategory(category);
-        return null;
+    public void updateCategory(@RequestBody String param) {
+        try {
+            Category category = JSON.parseObject(param, Category.class);
+            categoryService.updateCategory(category);
+        } catch (Exception e) {
+            log.error(e.toString());
+        }
+
     }
 
 

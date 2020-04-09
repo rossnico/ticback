@@ -6,19 +6,17 @@ import com.projettic.entity.Category;
 import com.projettic.entity.Exercise;
 import com.projettic.entity.StatusCode;
 import com.projettic.service.impl.ExerciseServiceImpl;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @Controller
 @RequestMapping(path = "/exercise")
 public class ExerciseController {
-
-    static Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
 
     @Autowired
     private ExerciseServiceImpl exerciseService;
@@ -41,13 +39,13 @@ public class ExerciseController {
             System.out.println(exercise.toString());
             exerciseService.addExercise(exercise);
             JSONObject jsonObject = new JSONObject();
-            logger.info("New exercise added: " + exercise.toString());
+            log.info("New exercise added: " + exercise.toString());
             jsonObject.put("StatusCode", StatusCode.SUCCESS.getCode());
             jsonObject.put("StatusMessage", StatusCode.SUCCESS.getMessage());
             return jsonObject.toString();
         } catch (Exception e) {
             JSONObject jsonObject = new JSONObject();
-            logger.warn("error when add new exercise: " + param + "  " + e.getMessage());
+            log.warn("error when add new exercise: " + param + "  " + e.getMessage());
             jsonObject.put("StatusCode", StatusCode.UNSUCCESS.getCode());
             jsonObject.put("StatusMessage", StatusCode.UNSUCCESS.getMessage());
             return jsonObject.toString();
@@ -57,19 +55,22 @@ public class ExerciseController {
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/deleteExercise/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public String deleteExercise(@PathVariable int id) {
-        //TODO log,exception,return
-        exerciseService.deleteExerciseById(id);
-        return null;
+    public void deleteExercise(@PathVariable int id) {
+        try {
+            exerciseService.deleteExerciseById(id);
+        } catch (Exception e) {
+            log.error(e.toString());
+        }
+
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(path = "/getAllExercises", method = RequestMethod.GET)
-    @ResponseBody
-    public String getAll() {
-        List<Exercise> list = exerciseService.findAll();
-        return JSON.toJSONString(list);
-    }
+//    @CrossOrigin(origins = "http://localhost:4200")
+//    @RequestMapping(path = "/getAllExercises", method = RequestMethod.GET)
+//    @ResponseBody
+//    public String getAll() {
+//        List<Exercise> list = exerciseService.findAll();
+//        return JSON.toJSONString(list);
+//    }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/getExercisesByGroup", method = RequestMethod.POST)
@@ -83,13 +84,16 @@ public class ExerciseController {
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/updateExercise", method = RequestMethod.POST)
     @ResponseBody
-    public String updateExercise(@RequestBody String param) {
-        //TODO log,exception,return
-        Exercise exercise = JSON.parseObject(param, Exercise.class);
-        exerciseService.updateExercise(exercise);
-        return null;
+    public void updateExercise(@RequestBody String param) {
+        try {
+            Exercise exercise = JSON.parseObject(param, Exercise.class);
+            exerciseService.updateExercise(exercise);
+        } catch (Exception e) {
+            log.error(e.toString());
+        }
+
     }
-    
+
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/getExercisesToDoByGroup/{idCategory}/{idUser}", method = RequestMethod.GET)
     @ResponseBody

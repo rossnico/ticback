@@ -38,27 +38,10 @@ public class AccountServiceImpl implements AccountService {
         }
     }
 
-    @Override
-    public Account checkAccount(Account account) {
-        Account accountDb = accountDao.isExist(account);
-        if (accountDb!= null) {
-            if (account.isEquals(accountDb)) {
-                System.out.println("check account! " + accountDb.toString());
-                return accountDb;
-            }
-        } else {
-            System.out.println("Wrong user name or password!");
-        }
-        return null;
-    }
 
     @Override
     public boolean isExist(Account account) {
-        if(accountDao.isExist(account)!=null){
-            return true;
-        } else {
-            return false;
-        }
+        return accountDao.isExist(account) != null;
     }
 
     @Override
@@ -66,6 +49,7 @@ public class AccountServiceImpl implements AccountService {
         return accountDao.findUserByUserName(userName);
     }
 
+    @Transactional
     @Override
     public void updateUserClass(int userId) {
         try{
@@ -73,8 +57,7 @@ public class AccountServiceImpl implements AccountService {
 
             if (account.getUserClass() == 1) {
                 accountDao.updateToUser(userId);
-            }
-            else if (account.getUserClass() == 2) {
+            } else if (account.getUserClass() == 2) {
                 accountDao.updateToAdministrator(userId);
             }
         } catch (BadSqlGrammarException e){

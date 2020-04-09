@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="tral-1.compute.amazonaws.com 18.197.39.218">
+    <serverData>
+      <paths name="tral-1.compute.amazonaws.com 18.197.39.218">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/centos/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

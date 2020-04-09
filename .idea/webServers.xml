@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4cfc1fbd-8621-4bef-a0e7-17b8cfe6cf04" name="tral-1.compute.amazonaws.com 18.197.39.218" url="http://18.197.39.218">
+        <fileTransfer host="18.197.39.218" port="22" privateKey="D:\Users\adaml\Downloads\HluWebServer.ppk" rootFolder="/home/centos" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions controlEncoding="UTF-8" dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

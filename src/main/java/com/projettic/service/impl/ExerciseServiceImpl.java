@@ -7,7 +7,6 @@ import com.projettic.entity.StatusCode;
 import com.projettic.service.ExerciseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -20,8 +19,7 @@ public class ExerciseServiceImpl implements ExerciseService {
 
     @Override
     public List<Exercise> findAll() {
-    	List<Exercise> list = exerciseDao.findAllExercise();
-    	return list;
+        return exerciseDao.findAllExercise();
     }
 
     @Override
@@ -38,19 +36,22 @@ public class ExerciseServiceImpl implements ExerciseService {
         return jsonObject.toJSONString();
     }
 
+    @Transactional
     @Override
     public void addExercise(Exercise exercise) {
         exerciseDao.addExercise(exercise);
     }
 
+    @Transactional
     @Override
     public void deleteExerciseById(int idExercise) {
         exerciseDao.deleteExerciseById(idExercise);
     }
 
+    @Transactional
     @Override
     public void updateExercise(Exercise exercise) {
-    	System.out.println(exercise.getTextExercise()+exercise.getIdExercise());
+        System.out.println(exercise.getTextExercise() + exercise.getIdExercise());
         exerciseDao.updateExercise(exercise);
     }
 

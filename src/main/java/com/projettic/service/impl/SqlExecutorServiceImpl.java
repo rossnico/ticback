@@ -7,6 +7,7 @@ import com.projettic.entity.Correction;
 import com.projettic.entity.SqlQuery;
 import com.projettic.entity.VeriCode;
 import com.projettic.service.SqlExecutorService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+@Slf4j
 @Service("empService")
 public class SqlExecutorServiceImpl implements SqlExecutorService {
 
@@ -25,14 +27,15 @@ public class SqlExecutorServiceImpl implements SqlExecutorService {
     @Override
     public String getSqlResult(SqlQuery sqlQuery) {
         try {
-            List<LinkedHashMap<String, Object>> empList = sqlExecutorDao.getResult(sqlQuery);
+            List<LinkedHashMap<String, Object>> ListRes = sqlExecutorDao.getResult(sqlQuery);
             JSONArray jsonArray = new JSONArray();
-            for (LinkedHashMap linkedHashMap : empList) {
+            for (LinkedHashMap linkedHashMap : ListRes) {
                 JSONObject jsonObject = new JSONObject(linkedHashMap);
                 jsonArray.add(jsonObject);
             }
             return jsonArray.toString();
         } catch (BadSqlGrammarException e) {
+            log.error(e.toString());
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("ErrorCode", e.getSQLException().getErrorCode());
             jsonObject.put("RootCause", e.getSQLException().getMessage());
@@ -65,8 +68,7 @@ public class SqlExecutorServiceImpl implements SqlExecutorService {
                 return jsonObject.toString();
             }
         } catch (BadSqlGrammarException e) {
-            //TODO log
-            System.out.println(e.getSQLException());
+            log.error(e.toString());
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("VeriCode", VeriCode.FAULT.getCode());
             jsonObject.put("VeriMessage", VeriCode.FAULT.getMessage());

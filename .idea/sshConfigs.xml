@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="18.197.39.218" id="cf1ff3d6-d4f4-4146-9f16-dae7f08c24f3" keyPath="D:\Users\adaml\Downloads\HluWebServer.ppk" port="22" customName="tral-1.compute.amazonaws.com 18.197.39.218" nameFormat="CUSTOM" username="centos" />
+      <sshConfig host="18.197.39.218" id="10fa3699-204a-4bb4-8238-4e7a64b6856a" keyPath="D:\Users\adaml\Downloads\HluWebServer.ppk" port="22" customName="tral-1.compute.amazonaws.com 18.197.39.218" nameFormat="CUSTOM" username="centos" />
+    </configs>
+  </component>
+</project>
