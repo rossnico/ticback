@@ -37,4 +37,8 @@ public class AdvancementServiceImpl implements AdvancementService {
     	System.out.println(list);
     	return list;
     }
+    
+    public AccountAdvancement findAdvancementByUser(int idUser) {
+    	return this.advancementDao.findAdvancementByUser(idUser);
+    }
 }

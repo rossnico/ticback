@@ -59,4 +59,12 @@ public class AdvancementController {
     	List<CategoryAdvancement> list = this.advancementService.getCategoryAdvancement(idUser);
     	return JSON.toJSONString(list);
     }
+    
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path = "/getAdvancementByUser/{idUser}", method = RequestMethod.GET)
+    @ResponseBody()
+    public String getAdvancementByUser(@PathVariable int idUser) {
+    	AccountAdvancement advancement = this.advancementService.findAdvancementByUser(idUser);
+    	return JSON.toJSONString(advancement);
+    }
 }

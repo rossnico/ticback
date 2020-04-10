@@ -21,6 +21,14 @@ public interface AdvancementDao {
     		+ "group by userId")
     List<AccountAdvancement> findAllAdvancement();
     
+    @Select("select adv_user_id as userId,"
+    		+ " count(*) as nbExercisesDone,"
+    		+ " (count(*)*100/(select count(*) from t_exercise)) as advancementPercentage"
+    		+ " from t_advancement "
+    		+ " where adv_user_id = #{idUser} "
+    		+ "group by userId")
+    AccountAdvancement findAdvancementByUser(int idUser);
+    
     @Insert("insert into t_advancement(adv_user_id, adv_category_id, adv_exercise_id) " +
             "values(#{advUserId},#{advCategoryId},#{advExerciseId})")
     void saveAdvancement(Advancement advancement);

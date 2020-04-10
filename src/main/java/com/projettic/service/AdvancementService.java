@@ -10,4 +10,5 @@ public interface AdvancementService {
 	public  List<AccountAdvancement> findAllAdvancement();
 	public void saveAdvancement(Advancement advancement);
 	public List<CategoryAdvancement> getCategoryAdvancement(int idUser);
+	public AccountAdvancement findAdvancementByUser(int idUser);
 }
